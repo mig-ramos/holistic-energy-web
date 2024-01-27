@@ -1,3 +1,9 @@
+import Content from "@/components/offTheHome/content"
+
 export default function About() {
-    return <div>Sobre Nós</div>
+    return (
+    <Content>
+      Sobre Nós
+
+    </Content>)
   }

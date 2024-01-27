@@ -3,6 +3,7 @@ import { Hero } from "@/components/offTheHome/hero";
 import { About } from "@/components/offTheHome/about";
 import { Schedule } from "@/components/offTheHome/schedule";
 import { Contact } from "@/components/offTheHome/contact";
+import Content from "@/components/offTheHome/content";
 
 export default function Home() {
   return (
@@ -15,11 +16,13 @@ export default function Home() {
         />
       </Head>
       <main>
-        <h1>HOME</h1>
-        <Hero />
-        <About />
-        <Schedule />
-        <Contact />
+        <Content>
+          <h1>HOME</h1>
+          <Hero />
+          <About />
+          <Schedule />
+          <Contact />
+        </Content>
       </main>
     </>
   );

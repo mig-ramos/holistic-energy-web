@@ -1,3 +1,5 @@
+import Content from "@/components/offTheHome/content"
+
 export default function Contact() {
-    return <div>Contato</div>
+    return (<Content>Contato</Content>)
   }

@@ -1,3 +1,5 @@
+import Content from "@/components/offTheHome/content";
+
 export default function Therapies() {
-  return <div>Terapias</div>;
+  return <Content>Terapias</Content>;
 }
