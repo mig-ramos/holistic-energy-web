@@ -2,8 +2,16 @@ import { ActiveLink } from "@/components/activeLink";
 import Image from "next/image";
 import LogoLight from "../../public/logo-light.svg";
 import LogoDark from "../../public/logo-dark.svg";
+import { AuthContext } from "@/data/contexts/auth/AuthContext";
+import AppContext from "@/data/contexts/app/AppContext";
+import useAppData from "@/data/hooks/useAppData";
+import { useContext } from "react";
+import BotaoAlternarTema from "./buttonAlternationTheme";
 
 export function Header() {
+  const { signOut, isAuthenticated } = useContext(AuthContext);
+  // const { tema, alternarTema } = useAppData(); // Para o Botão
+  const { tema } = useContext(AppContext);
   let linkActive = "text-green-500 font-bold";
   return (
     <header
@@ -12,13 +20,23 @@ export function Header() {
       <nav className={"w-11/12 flex items-center mx-auto"}>
         <div className="flex items-center justify-center">
           <ActiveLink href={"/"}>
-            <Image
-              src={LogoLight}
-              alt="Logo do site"
-              width={120}
-              objectFit=""
-              placeholder={`empty`}
-            />
+            {tema === "" ? (
+              <Image
+                src={LogoLight}
+                alt="Logo do site"
+                width={120}
+                objectFit=""
+                placeholder={`empty`}
+              />
+            ) : (
+              <Image
+                src={LogoDark}
+                alt="Logo do site"
+                width={120}
+                objectFit=""
+                placeholder={`empty`}
+              />
+            )}
           </ActiveLink>
         </div>
         <div className={`flex-grow ml-6`}>
@@ -39,12 +57,14 @@ export function Header() {
           </ActiveLink>
         </div>
         <div>
-          <button
+
+          {/* <BotaoAlternarTema tema={"tema"} alternarTema={() =>alternarTema}/> */}
+          {/* <button
             className={`hover:text-green-600 font-bold text-xl mx-6`}
             onClick={() => alert("Saindo")}
           >
             Sair
-          </button>
+          </button> */}
         </div>
       </nav>
     </header>
