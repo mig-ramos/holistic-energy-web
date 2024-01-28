@@ -18,7 +18,6 @@ export default function Home() {
       </Head>
       <main>
         <Content>
-          <h1>HOME</h1>
           <Hero />
           <About />
           <Therapies />
