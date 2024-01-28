@@ -3,8 +3,8 @@ import mim from "../../../public/images/mim.jpg";
 
 export function About() {
   return (
-    <section className={`flex mx-auto my-auto rounded-3xl justify-center bg-lime-100`}>
-      <div className={`w-9/12  text-start  p-4`}>
+    <section className={`flex mx-auto my-auto rounded-3xl justify-center bg-lime-100 mt-4`}>
+      <div className={`w-9/12  text-start border-s-8 border-green-500  p-4`}>
         <h2 className={`text-gray-600 text-xl`}>Sobre mim</h2>
         <h1 className={`font-bold text-3xl`}>Terapeuta da Silva</h1>
         <div className={`mt-4 text-xl text-gray-700`}>

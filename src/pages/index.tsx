@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { Hero } from "@/components/offTheHome/hero";
 import { About } from "@/components/offTheHome/about";
+import Content from "@/components/offTheHome/content";
 import { Schedule } from "@/components/offTheHome/schedule";
 import { Contact } from "@/components/offTheHome/contact";
-import Content from "@/components/offTheHome/content";
+import { Therapies } from "@/components/offTheHome/therapies";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <h1>HOME</h1>
           <Hero />
           <About />
+          <Therapies />
           <Schedule />
           <Contact />
         </Content>
