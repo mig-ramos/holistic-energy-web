@@ -12,8 +12,8 @@ export function Therapies() {
           <h1 className={`font-bold text-green-500 text-3xl`}>Terapias</h1>
         </div>
 
-        <div className={`flex gap-4`}>
-          <div className={`w-1/3  text-start  pt-4`}>
+        <div className={`flex flex-col md:flex-row gap-4`}>
+          <div className={`md:w-1/3  text-start  pt-4`}>
             <h3 className={`font-bold text-2xl mb-2`}>Florais</h3>
             <Image
               src={florais}
@@ -26,7 +26,7 @@ export function Therapies() {
               the readable content of a page when looking at its layout.
             </div>
           </div>
-          <div className={`w-1/3  text-start  pt-4`}>
+          <div className={`md:w-1/3  text-start  pt-4`}>
             <h2 className={`font-bold text-2xl mb-2`}>Reiki</h2>
             <Image
               src={reiki}
@@ -39,7 +39,7 @@ export function Therapies() {
               the readable content of a page when looking at its layout.
             </div>
           </div>
-          <div className={`w-1/3  text-start  pt-4`}>
+          <div className={`md:w-1/3  text-start  pt-4`}>
             <h2 className={`font-bold text-2xl mb-2`}>Acupuntura</h2>
             <Image
               src={acupuntura}
