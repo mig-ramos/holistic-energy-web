@@ -19,7 +19,7 @@ export function ActiveLink({
   return (
     <Link
       {...rest}
-      className="p-3 m-1 rounded-full hover:text-green-600 dark:hover:text-gray-400"
+      className="md:p-3 m-1 rounded-full hover:text-green-600 dark:hover:text-gray-400"
     >
       {cloneElement(children, { className })}
     </Link>

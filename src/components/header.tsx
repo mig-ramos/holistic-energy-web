@@ -17,7 +17,9 @@ export function Header() {
     <header
       className={`w-full bg-zinc-100 dark:bg-gray-900 dark:text-gray-100 text-gray-500 font-light text-xl`}
     >
-      <nav className={"w-11/12 flex items-center mx-auto"}>
+      <nav
+        className={"lg:w-11/12 flex flex-col lg:flex-row items-center mx-auto"}
+      >
         <div className="flex items-center justify-center">
           <ActiveLink href={"/"}>
             {tema === "" ? (
@@ -39,7 +41,7 @@ export function Header() {
             )}
           </ActiveLink>
         </div>
-        <div className={`flex-grow ml-6`}>
+        <div className={`flex-grow md:ml-6`}>
           <ActiveLink href={"/"} activeClassName={linkActive}>
             <span>Home</span>
           </ActiveLink>
@@ -57,7 +59,6 @@ export function Header() {
           </ActiveLink>
         </div>
         <div>
-
           {/* <BotaoAlternarTema tema={"tema"} alternarTema={() =>alternarTema}/> */}
           {/* <button
             className={`hover:text-green-600 font-bold text-xl mx-6`}
