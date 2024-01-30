@@ -1,8 +1,8 @@
 import { IconeLua, IconeSol } from "@/components/icons";
 
 interface BotaoAlternarTema {
-  tema: string;
-  alternarTema: () => void;
+  tema?: string;
+  alternarTema?: () => void;
 }
 
 export function ButtonAlternationTheme(props: BotaoAlternarTema) {
