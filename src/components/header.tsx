@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { ActiveLink } from "@/components/activeLink";
 import Image from "next/image";
 import LogoLight from "../../public/logo-light.svg";
@@ -5,7 +6,6 @@ import LogoDark from "../../public/logo-dark.svg";
 import { AuthContext } from "@/data/contexts/auth/AuthContext";
 import AppContext from "@/data/contexts/app/AppContext";
 import useAppData from "@/data/hooks/useAppData";
-import { useContext } from "react";
 import BotaoAlternarTema from "./buttonAlternationTheme";
 
 export function Header() {
@@ -60,12 +60,15 @@ export function Header() {
         </div>
         <div>
           {/* <BotaoAlternarTema tema={"tema"} alternarTema={() =>alternarTema}/> */}
-          {/* <button
+          {/* {isAuthenticated ?? (
+            <button
             className={`hover:text-green-600 font-bold text-xl mx-6`}
-            onClick={() => alert("Saindo")}
+            onClick={signOut}
           >
             Sair
-          </button> */}
+          </button>
+          )} */}
+          
         </div>
       </nav>
     </header>

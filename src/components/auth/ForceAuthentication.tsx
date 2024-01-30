@@ -14,7 +14,7 @@ export default function ForcarAutenticacao(props: any) {
           dangerouslySetInnerHTML={{
             __html: `
                 if(!document.cookie?.includes("@holistic.token")) {
-                window.location.href = "/signin"
+                window.location.href = "/auth"
             } 
             `,
           }}
@@ -44,7 +44,7 @@ export default function ForcarAutenticacao(props: any) {
   } else if (carregando) {
     return renderizarCarregando();
   } else {
-    Router.push("/signin");
+    Router.push("/auth");
     return null;
   }
 }

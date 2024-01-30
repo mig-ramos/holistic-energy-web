@@ -1,10 +1,19 @@
 import { canSSRAuth } from "@/utils/canSSAuth";
-import { useContext } from "react";
-import { AuthContext } from "@/data/contexts/auth/AuthContext";
 import Content from "@/components/offTheHome/content";
+import { LayoutDasboard } from "@/components/layoutDashborad";
+import { PanelHeader } from "@/components/layoutDashborad/panelHeader";
+import { Head } from "next/document";
 
 export default function Dashboard() {
-  return <Content>Meu Painel</Content>;
+  return (
+    <Content>
+      <LayoutDasboard>
+        <PanelHeader />
+
+        <div>Meu Painellll</div>
+      </LayoutDasboard>
+    </Content>
+  );
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {

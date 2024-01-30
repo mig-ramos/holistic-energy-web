@@ -5,7 +5,7 @@ interface BotaoAlternarTema {
   alternarTema: () => void;
 }
 
-export default function BotaoAlternarTema(props: BotaoAlternarTema) {
+export default function ButtonAlternationTheme(props: BotaoAlternarTema) {
   return props.tema === "dark" ? (
     <div
       onClick={props.alternarTema}

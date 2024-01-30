@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { destroyCookie, setCookie, parseCookies } from "nookies";
 import Router from "next/router";
-import { api } from "../../../services/apiClient";
+import { api } from "@/services/apiClient";
 import { toast } from "react-toastify";
 
 type UserProps = {
