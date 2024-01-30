@@ -21,7 +21,7 @@ export function Therapies() {
               height={140}
               className="rounded-3xl w-full"
             />
-            <div className={`mt-4 text-xl text-gray-700`}>
+            <div className={`mt-4 text-xl text-gray-700 dark:text-gray-300`}>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout.
             </div>
@@ -34,7 +34,7 @@ export function Therapies() {
               height={140}
               className="rounded-3xl w-full"
             />
-            <div className={`mt-4 text-xl text-gray-700`}>
+            <div className={`mt-4 text-xl text-gray-700 dark:text-gray-300`}>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout.
             </div>
@@ -47,7 +47,7 @@ export function Therapies() {
               height={140}
               className="rounded-3xl w-full"
             />
-            <div className={`mt-4 text-xl text-gray-700`}>
+            <div className={`mt-4 text-xl text-gray-700 dark:text-gray-300`}>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout.
             </div>

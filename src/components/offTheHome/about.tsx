@@ -4,7 +4,7 @@ import mim from "../../../public/images/mim.jpg";
 export function About() {
   return (
     <section
-      className={`flex flex-col md:flex-row mx-auto my-auto rounded-3xl items-center justify-center bg-zinc-100 mt-4`}
+      className={`flex flex-col md:flex-row mx-auto my-auto rounded-3xl items-center justify-center bg-zinc-100 dark:bg-gray-700 mt-4`}
     >
       <div className={`md:w-9/12  text-start`}>
         <div className="border-s-8 border-green-500 p-4">
@@ -13,7 +13,7 @@ export function About() {
             Terapeuta da Silva
           </h1>
         </div>
-        <div className={`mt-4 mr-4 text-xl text-gray-700`}>
+        <div className={`mt-4 mr-4 text-xl text-gray-700 dark:text-gray-300`}>
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of

@@ -6,11 +6,9 @@ import LogoDark from "../../public/logo-dark.svg";
 import { AuthContext } from "@/data/contexts/auth/AuthContext";
 import AppContext from "@/data/contexts/app/AppContext";
 import useAppData from "@/data/hooks/useAppData";
-import BotaoAlternarTema from "./buttonAlternationTheme";
 
 export function Header() {
   const { signOut, isAuthenticated } = useContext(AuthContext);
-  // const { tema, alternarTema } = useAppData(); // Para o Botão
   const { tema } = useContext(AppContext);
   let linkActive = "text-green-500 font-bold";
   return (
@@ -59,8 +57,7 @@ export function Header() {
           </ActiveLink>
         </div>
         <div>
-          {/* <BotaoAlternarTema tema={"tema"} alternarTema={() =>alternarTema}/> */}
-          {/* {isAuthenticated ?? (
+           {/* {isAuthenticated ?? (
             <button
             className={`hover:text-green-600 font-bold text-xl mx-6`}
             onClick={signOut}

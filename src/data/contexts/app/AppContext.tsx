@@ -19,7 +19,7 @@ export function AppProvider(props: any) {
   }
 
   useEffect(() => {
-    const temaSalvo = localStorage.getItem("tema");
+    let temaSalvo = localStorage.getItem("tema");
     setTema(temaSalvo);
   }, []);
 
