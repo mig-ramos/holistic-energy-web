@@ -1,22 +1,34 @@
 export function Schedule() {
   return (
-    <section className={`mx-auto my-auto rounded-3xl bg-zinc-100 dark:bg-gray-800 mt-4`}>
-      <div className={`border-s-8 border-green-500 p-4`}>
-        <h2 className={`text-green-500 text-start  text-xl`}>
-          Calendário de Agendamentos
-        </h2>
-        <h1 className={`text-green-500 text-start  font-bold text-3xl`}>
-          Agendar uma Consulta
-        </h1>
-      </div>
-      <div className={`flex mt-4`}>
-        <div className={`w-1/2`}>
-          <h3 className={`dark:text-gray-300 selection:marker:font-bold text-2xl mb-2`}>Seus Agendamentos</h3>
+    <section
+      className={`flex flex-col md:flex-row mx-auto  rounded-3xl bg-zinc-100 dark:bg-gray-800
+     mt-4`}
+    >
+      <div className={`md:w-1/2`}>
+        <div className={`border-s-8 border-green-500 p-4`}>
+          <h2 className={`text-green-500 text-xl`}>
+            Calendário de Agendamentos
+          </h2>
+
+          <h1 className={`text-green-500 font-bold text-3xl`}>
+            Agendar Consulta
+          </h1>
         </div>
-        <div className={`w-1/2`}>
-          <h3 className={`dark:text-gray-300 font-bold text-2xl mb-2`}>
-            Verifique os dias e horas disponíveis!
-          </h3>
+      </div>
+      <div className={`md:w-1/2`}>
+        <div className={`dark:text-gray-300 font-normal text-xl my-2`}>
+          <p>Manifestou interesse em conhecer nosso atendimento?</p>
+          <p>Considere criar sua conta e ter o seu Painel de Cliente!</p>
+          <p>Lá você terá acesso aos dias e horários disponíveis e,</p>
+          <p>poderá agendar no dia e hora de sua preferência!</p>
+        </div>
+        <div className={`flex justify-center`}>
+          <button
+            onClick={() => alert("Criar meu Painel")}
+            className={`p-4 my-4 w-full bg-green-700 hover:bg-green-600 rounded-xl text-xl text-white font-bold`}
+          >
+            Ir para o seu Painel
+          </button>
         </div>
       </div>
     </section>
