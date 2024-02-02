@@ -4,7 +4,7 @@ import mim from "../../../public/images/mim.jpg";
 export function About() {
   return (
     <section
-      className={`flex flex-col md:flex-row mx-auto my-auto rounded-3xl items-center justify-center bg-zinc-100 dark:bg-gray-700 mt-4`}
+      className={`flex flex-col md:flex-row mx-auto my-auto rounded-3xl  justify-center bg-zinc-100 dark:bg-gray-700 mt-4`}
     >
       <div className={`md:w-9/12  text-start`}>
         <div className="border-s-8 border-green-500 p-4">
@@ -20,7 +20,9 @@ export function About() {
           letters.
         </div>
       </div>
-      <div className={`flex justify-center items-center mt-4 md:w-3/12 md:mt-0 h-auto`}>
+      <div
+        className={`flex justify-center items-center mt-4 md:w-3/12 md:mt-0 h-auto`}
+      >
         <Image
           src={mim}
           height={260}
