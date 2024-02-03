@@ -5,6 +5,7 @@ import Content from "@/components/offTheHome/content";
 import { Schedule } from "@/components/offTheHome/schedule";
 import { Contact } from "@/components/offTheHome/contact";
 import { Therapies } from "@/components/offTheHome/therapies";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (

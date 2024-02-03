@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import AuthInput from "@/components/auth/AuthInput";
+import Input from "@/components/auth/input";
 import Image from "next/image";
 import imgLoading from "/public/assets/loading.gif";
 import { toast } from "react-toastify";
@@ -93,7 +93,7 @@ export default function Auth() {
               ? "Entre com a sua conta"
               : "Cadastre-se na plataforma"}
           </h1>
-          <AuthInput
+          <Input
             label="Nome"
             tipo="text"
             valor={name}
@@ -101,21 +101,21 @@ export default function Auth() {
             obrigatorio
             naoRenderizarQuando={modo === "login"}
           />
-          <AuthInput
+          <Input
             label="Email"
             tipo="email"
             valor={email}
             valorMudou={setEmail}
             obrigatorio
           />
-          <AuthInput
+          <Input
             label="Senha"
             tipo="password"
             valor={password}
             valorMudou={setPassword}
             obrigatorio
           />
-          <AuthInput
+          <Input
             label="Confirmação de Senha"
             tipo="password"
             valor={passwordConfirm}

@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <AppProvider>
         <LayoutPublic>
           <Component {...pageProps} />
-          <ToastContainer autoClose={1000} />
+          <ToastContainer autoClose={2000} />
         </LayoutPublic>
       </AppProvider>
     </AuthProvider>
