@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { Hero } from "@/components/offTheHome/hero";
+import { Carosel } from "@/components/offTheHome/carosel";
 import { About } from "@/components/offTheHome/about";
 import Content from "@/components/offTheHome/content";
 import { Schedule } from "@/components/offTheHome/schedule";
 import { Contact } from "@/components/offTheHome/contact";
 import { Therapies } from "@/components/offTheHome/therapies";
-import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -19,7 +18,7 @@ export default function Home() {
       </Head>
       <main>
         <Content>
-          <Hero />
+          <Carosel />
           <About />
           <Therapies />
           <Schedule />
