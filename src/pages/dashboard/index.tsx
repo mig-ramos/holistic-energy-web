@@ -9,16 +9,37 @@ import { useContext } from "react";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
+
+  const role = user.role;
+
+  switch(role) {
+    case 'CLIENT':
+
+    break;
+    case 'THERAPIST':
+
+    break;
+    case 'ADMIN':
+
+    break;
+    default:
+      
+  }
+  
   return (
     <Content>
       <LayoutDasboard>
-        <PanelHeader />
+        <PanelHeader role = {user.role}/>
         <div>
           <Head>
             <title>Meu Painel</title>
             <meta name="description" content="Painel Administrativo" />
           </Head>
-          {isAuthenticated && user.role === "ADMIN" && <div>admin</div>}
+          {isAuthenticated && user.role === "ADMIN" && (
+          <div>
+            <h2>SETUP - Home Page</h2>
+          </div>
+          )}
 
           {isAuthenticated && user.role === "THERAPIST" && <div>TERAPEUTA</div>}
 
