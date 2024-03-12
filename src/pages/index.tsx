@@ -6,7 +6,11 @@ import { Schedule } from "@/components/offTheHome/schedule";
 import { Contact } from "@/components/offTheHome/contact";
 import { Therapies } from "@/components/offTheHome/therapies";
 
+import { useSlide } from "@/data/hooks/useSlide"
+
 export default function Home() {
+  const { slides } = useSlide();
+
   return (
     <>
       <Head>
@@ -18,7 +22,7 @@ export default function Home() {
       </Head>
       <main>
         <Content>
-          <Carosel />
+          <Carosel slide={slides}/>
           <About />
           <Therapies />
           <Schedule />

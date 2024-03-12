@@ -1,27 +1,32 @@
+import Router from "next/router";
+import { useContext } from "react";
+import { AuthContext } from "@/data/contexts/auth/AuthContext";
 import { canSSRAuth } from "@/utils/canSSAuth";
 import Content from "@/components/offTheHome/content";
 import Head from "next/head";
 import { LayoutDasboard } from "@/components/layoutDashborad";
 import { PanelHeader } from "@/components/layoutDashborad/panelHeader";
-import { AuthContext } from "@/data/contexts/auth/AuthContext";
 
-import { useContext } from "react";
+import Link from "next/link";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
 
-  const role = user.role;
+  try {
+    switch (user.role) {
+      case "ADMIN":
+        break;
 
-  switch (role) {
-    case "ADMIN":
-      break;
+      case "THERAPIST":
+        break;
 
-    case "THERAPIST":
-      break;
-
-    case "CLIENT":
-      break;
-    default:
+      case "CLIENT":
+        break;
+      default:
+        Router.push("/");
+    }
+  } catch (err) {
+    return <Link href={"/"} />;
   }
 
   return (
@@ -35,7 +40,7 @@ export default function Dashboard() {
           </Head>
           {isAuthenticated && user.role === "ADMIN" && (
             <div>
-              <h2>Painel do ADMINISTRADOR</h2>
+              <h2>Painel do ADMINISTRADOR: {user.name}</h2>
               <h3 className="py-4">Página HOME</h3>
               <div className="flex gap-4">
                 <div className="w-1/3">

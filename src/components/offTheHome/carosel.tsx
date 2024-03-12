@@ -1,18 +1,21 @@
-import Image from "next/image";
-import image1 from "/public/images/acupuntura.png";
-import image2 from "/public/images/terapia-floral.png";
-import image3 from "/public/images/reiki.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/controller"
+import "swiper/css/controller";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/keyboard"
+import "swiper/css/keyboard";
+import Slide from "@/data/db/banner/Slide";
 
-import "swiper/css/autoplay";
+type BannerProps = {
+  slide: Slide[];
+};
 
-export function Carosel() {
+export function Carosel<T>(props: BannerProps) {
+  const pathImage = "http://localhost:3333/files/";
+
+  let banner = props.slide;
+
   return (
     <section className={``}>
       <Swiper
@@ -27,23 +30,21 @@ export function Carosel() {
         allowSlidePrev={true}
         allowSlideNext={true}
         allowTouchMove={true}
-touchMoveStopPropagation={true}
+        touchMoveStopPropagation={true}
       >
-        <SwiperSlide>
-          <div className="h-auto w-full rounded-xl">
-            <Image src={image1} className="w-full rounded-xl" alt="Slide Acumputura" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="h-auto w-full rounded-xl">
-          <Image src={image2} className="w-full rounded-xl" alt="Slide Acumputura" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="h-auto w-full rounded-xl">
-          <Image src={image3} className="w-full rounded-xl" alt="Slide Acumputura" />
-          </div>
-        </SwiperSlide>
+        {banner.map((item) => {
+          return (
+            <SwiperSlide key={item.id}>
+              <div className="h-auto w-full rounded-xl">
+                <img
+                  src={pathImage + item.slide}
+                  className="w-full rounded-xl"
+                  alt={`Slide ${((item.slide).split('-'))[1]}`} 
+                />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </section>
   );

@@ -28,6 +28,7 @@ export function About() {
           height={260}
           alt="Foto sobre mim"
           className="rounded-3xl w-full"
+          priority={true}
         />
       </div>
     </section>
