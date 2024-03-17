@@ -1,6 +1,6 @@
 import Slide from "./Slide";
 import SlideRepository from "./SlideRepository";
-import { api } from "../../../services/apiClient";
+import { api } from "../../../../services/apiClient";
 
 export default class SlideCollection implements SlideRepository {
 

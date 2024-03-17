@@ -6,7 +6,7 @@ import { Schedule } from "@/components/offTheHome/schedule";
 import { Contact } from "@/components/offTheHome/contact";
 import { Therapies } from "@/components/offTheHome/therapies";
 
-import { useSlide } from "@/data/hooks/useSlide"
+import { useSlide } from "@/data/hooks/home/useSlide"
 
 export default function Home() {
   const { slides } = useSlide();

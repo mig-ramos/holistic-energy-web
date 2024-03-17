@@ -8,9 +8,9 @@ export function About() {
     >
       <div className={`md:w-9/12  text-start`}>
         <div className="border-s-8 border-green-500 p-4">
-          <h2 className={`text-green-500 text-xl`}>Sobre mim</h2>
+          <h2 className={`text-green-500 text-xl`}>Sobre nós:</h2>
           <h1 className={`font-bold text-green-500 text-3xl`}>
-            Terapeuta da Silva
+            Holistic Energy
           </h1>
         </div>
         <div className={`mt-4 mr-4 text-xl text-gray-700 dark:text-gray-300`}>
