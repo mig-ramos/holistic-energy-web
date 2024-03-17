@@ -6,13 +6,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/keyboard";
 import Slide from "@/data/db/banner/Slide";
+import { APP_SERV } from "@/data/config/configApp";
 
 type BannerProps = {
   slide: Slide[];
 };
 
 export function Carosel<T>(props: BannerProps) {
-  const pathImage = "http://localhost:3333/files/";
+  const pathImage = APP_SERV.pathBaseImages;
 
   let banner = props.slide;
 
@@ -39,7 +40,7 @@ export function Carosel<T>(props: BannerProps) {
                 <img
                   src={pathImage + item.slide}
                   className="w-full rounded-xl"
-                  alt={`Slide ${((item.slide).split('-'))[1]}`} 
+                  alt={`Slide ${item.slide.split("-")[1]}`}
                 />
               </div>
             </SwiperSlide>
