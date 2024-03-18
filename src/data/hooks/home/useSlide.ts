@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Slide from "@/data/db/home/banner/Slide";
-import SlideRepository from "@/data/db/home/banner/SlideRepository";
-import SlideCollection from "@/data/db/home/banner/SlideCollection";
+import Slide from "@/data/db/home/slide/Slide";
+import SlideRepository from "@/data/db/home/slide/SlideRepository";
+import SlideCollection from "@/data/db/home/slide/SlideCollection";
 
 export function useSlide() {
     const repo: SlideRepository = new SlideCollection();

@@ -6,7 +6,7 @@ export default class SlideCollection implements SlideRepository {
 
     async listarTodos(): Promise<Slide[]> {
 
-        const response = await api.get('/home/banner', undefined)
+        const response = await api.get('/home/slide', undefined)
         return response.data ?? []
     }
 }

@@ -5,7 +5,7 @@ import "swiper/css/controller";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/keyboard";
-import Slide from "@/data/db/home/banner/Slide";
+import Slide from "@/data/db/home/slide/Slide";
 import { APP_SERV } from "@/data/config/configApp";
 
 type BannerProps = {
