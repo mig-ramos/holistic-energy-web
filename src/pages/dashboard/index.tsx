@@ -10,10 +10,13 @@ import { useSlide } from "@/data/hooks/home/useSlide";
 import { APP_SERV } from "@/data/config/configApp";
 
 import Link from "next/link";
+import { useAbout } from "@/data/hooks/home/useAbout";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
   const { slides } = useSlide();
+  const { abouts } = useAbout();
+
   const pathImage = APP_SERV.pathBaseImages;
 
   try {
@@ -45,7 +48,9 @@ export default function Dashboard() {
           {isAuthenticated && user.role === "ADMIN" && (
             <div>
               <h2>Painel do ADMINISTRADOR: {user.name}</h2>
-              <h3 className="py-4 font-bold text-xl md:text-2xl text-green-500">Página HOME</h3>
+              <h3 className="py-4 font-bold text-xl md:text-2xl text-green-500">
+                Página HOME
+              </h3>
               <div className="flex-col lg:flex lg:flex-row gap-4">
                 <div className="flex flex-col lg:w-1/2 ">
                   <div className="bg-slate-100 rounded-xl p-4">
