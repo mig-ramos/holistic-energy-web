@@ -109,17 +109,33 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="lg:w-1/2 flex flex-col">
-                  <div className="bg-green-100 rounded-xl p-4">
-                    <p>Sessão: SOBRE</p>
-                    <div className="flex h-24 gap-4">
-                      <div className="w-2/3 bg-orange-200">
-                        <span>Sub-Título</span>
-                        <h3>Título</h3>
-                        <p>Descrição</p>
+
+                  {abouts.map((item) =>{
+                    return(
+                      <div className="bg-slate-100 rounded-xl p-4" key={item.id}>
+                      <p className="py-2 font-bold">Sessão: {(item.subTitle).toUpperCase()}</p>
+                      <div className="flex flex-col md:flex-row h-auto gap-4">
+                        <div className="w-full md:w1/2">
+                          <p><span className="font-bold">Subtítulo: </span>{item.subTitle}</p>
+                          <p><span className="font-bold">Título: </span> {item.title}</p>
+                          <p><span className="font-bold">Descrição: </span>{item.description}</p>
+                        </div>
+                        <div className="w-full md:w-1/2">
+                          <img
+                          className="rounded-md w-full"
+                          src={pathImage + item.photo}
+                          alt={`Sobre ${
+                            item.photo.split("-")[1].split(".")[0]
+                          }`}
+                          />
+                        </div>
                       </div>
-                      <div className="w-1/3 bg-red-100">Foto</div>
                     </div>
-                  </div>
+
+                    )
+                  })}
+
+
                   <div className="bg-green-100 rounded-xl p-4">
                     <p>Sessão: EXPEDIENTE</p>
                     <div className="flex h-auto gap-4">

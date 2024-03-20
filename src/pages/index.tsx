@@ -8,10 +8,12 @@ import { Therapies } from "@/components/offTheHome/therapies";
 
 import { useSlide } from "@/data/hooks/home/useSlide";
 import { useAbout } from "@/data/hooks/home/useAbout";
+import { useTherapy } from "@/data/hooks/home/useTherapy";
 
 export default function Home() {
   const { slides } = useSlide();
   const { abouts } = useAbout();
+  const { therapies } = useTherapy();
 
   return (
     <>
@@ -26,7 +28,7 @@ export default function Home() {
         <Content>
           <Carosel slide={slides} />
           <AboutHome about={abouts} />
-          <Therapies />
+          <Therapies therapy={therapies}/>
           <Schedule />
           <Contact />
         </Content>

@@ -40,7 +40,7 @@ export function AboutHome<T>(props: AboutProps) {
               <img
                 src={pathImage + item.photo}
                 height={260}
-                alt="Foto sobre mim"
+                alt={item.subTitle}
                 className="rounded-3xl w-full"
               />
             </div>
