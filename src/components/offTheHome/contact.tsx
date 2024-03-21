@@ -21,14 +21,14 @@ export function Contact() {
   return (
     <section className={`mx-auto my-auto rounded-3xl mt-4`}>
       <div className={`border-s-8 border-green-500 p-4`}>
-        <h2 className={`text-green-500 text-start  text-xl`}>Redes Sociais</h2>
+        <h2 className={`text-green-500 text-start  text-xl`}>Formulário para contato</h2>
         <h1 className={`text-green-500 text-start  font-bold text-3xl`}>
           Entre em Contato
         </h1>
       </div>
       <div className={`flex flex-col md:flex-row mt-4`}>
         <div className={`md:w-1/2 w-full mb-4`}>
-          <h3 className={`font-bold text-2xl mb-2`}>Redes Sociais</h3>
+          {/* <h3 className={`font-bold text-2xl mb-2`}>Redes Sociais</h3>
           <ul>
             <li>
               <span className="font-bold">Zap:</span> 11 45673-4567
@@ -46,9 +46,9 @@ export function Contact() {
             <li>Face</li>
             <li>Insta</li>
             <li>YouTube</li>
-          </ul>
+          </ul> */}
           <div className="mt-4 md:mr-4">
-            <h3 className={`font-bold text-2xl mb-2`}>Formulário de Contato</h3>
+            {/* <h3 className={`font-bold text-2xl mb-2`}>Formulário de Contato</h3> */}
             <div>
               <InputText
                 label="Nome"
@@ -68,7 +68,7 @@ export function Contact() {
                 label="Assunto"
                 valor={texto}
                 valorMudou={setTexto}
-                rows={4}
+                rows={6}
                 obrigatorio
               />
               <Button cor="blue" onClick={formContact}>
@@ -80,7 +80,7 @@ export function Contact() {
 
         <div className={`md:w-1/2 w-full mb-4`}>
           <h3 className={`font-bold text-2xl mb-2`}>Onde Estamos:</h3>
-          <div className="flex w-full h-[500px] items-center justify-center bg-slate-300 border rounded-2xl">
+          <div className="flex w-full h-[400px] items-center justify-center bg-slate-300 border rounded-2xl">
             Map
           </div>
         </div>

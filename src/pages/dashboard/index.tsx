@@ -11,11 +11,13 @@ import { APP_SERV } from "@/data/config/configApp";
 
 import Link from "next/link";
 import { useAbout } from "@/data/hooks/home/useAbout";
+import { useTherapy } from "@/data/hooks/home/useTherapy";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
   const { slides } = useSlide();
   const { abouts } = useAbout();
+  const { therapies } = useTherapy();
 
   const pathImage = APP_SERV.pathBaseImages;
 
@@ -54,7 +56,7 @@ export default function Dashboard() {
               <div className="flex-col lg:flex lg:flex-row gap-4">
                 <div className="flex flex-col lg:w-1/2 ">
                   <div className="bg-slate-100 rounded-xl p-4">
-                    <p>Sessão: SLIDES</p>
+                    <p className="font-bold">Sessão: SLIDES</p>
                     <div className="flex flex-col">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-1">
                         {slides.map((item) => {
@@ -86,55 +88,6 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col bg-orange-100 rounded-xl p-4">
-                    <p>Sessão: TERAPIAS</p>
-                    <div className=" h-auto gap-4">
-                      <div className="w-1/3 h-24 bg-orange-200">
-                        Foto da Terapia
-                      </div>
-                      <div className="w-full h-36 bg-red-100">
-                        <span>Sub-Título</span>
-                        <h3>Título</h3>
-                        <p>Descrição</p>
-                      </div>
-                      <div className="w-1/3 h-24 bg-orange-200">
-                        Foto da Terapia
-                      </div>
-                      <div className="w-full h-36 bg-red-100">
-                        <span>Sub-Título</span>
-                        <h3>Título</h3>
-                        <p>Descrição</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="lg:w-1/2 flex flex-col">
-
-                  {abouts.map((item) =>{
-                    return(
-                      <div className="bg-slate-100 rounded-xl p-4" key={item.id}>
-                      <p className="py-2 font-bold">Sessão: {(item.subTitle).toUpperCase()}</p>
-                      <div className="flex flex-col md:flex-row h-auto gap-4">
-                        <div className="w-full md:w1/2">
-                          <p><span className="font-bold">Subtítulo: </span>{item.subTitle}</p>
-                          <p><span className="font-bold">Título: </span> {item.title}</p>
-                          <p><span className="font-bold">Descrição: </span>{item.description}</p>
-                        </div>
-                        <div className="w-full md:w-1/2">
-                          <img
-                          className="rounded-md w-full"
-                          src={pathImage + item.photo}
-                          alt={`Sobre ${
-                            item.photo.split("-")[1].split(".")[0]
-                          }`}
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    )
-                  })}
-
 
                   <div className="bg-green-100 rounded-xl p-4">
                     <p>Sessão: EXPEDIENTE</p>
@@ -160,6 +113,77 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
+                  
+                </div>
+                <div className="lg:w-1/2 flex flex-col">
+
+                {abouts.map((item) => {
+                    return (
+                      <div
+                        className="bg-slate-100 rounded-xl p-4"
+                        key={item.id}
+                      >
+                        <p className="py-2 font-bold">
+                          Sessão: {item.subTitle.toUpperCase()}
+                        </p>
+                        <div className="flex flex-col md:flex-row h-auto gap-4">
+                          <div className="w-full md:w1/2">
+                            <p>
+                              <span className="font-bold">Subtítulo: </span>
+                              {item.subTitle}
+                            </p>
+                            <p>
+                              <span className="font-bold">Título: </span>{" "}
+                              {item.title}
+                            </p>
+                            <p>
+                              <span className="font-bold">Descrição: </span>
+                              {item.description}
+                            </p>
+                          </div>
+                          <div className="w-full md:w-1/2">
+                            <img
+                              className="rounded-md w-full"
+                              src={pathImage + item.photo}
+                              alt={`Sobre ${
+                                item.photo.split("-")[1].split(".")[0]
+                              }`}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                <div className="flex flex-col bg-slate-100 rounded-xl p-4">
+                    <p className="font-bold">Sessão: TERAPIAS</p>
+                    <div className=" h-auto gap-4">
+                      {therapies.map((item) => {
+                        return (
+                          <div key={item.id} className="flex flex-col md:flex-row lg:flex-col h-auto gap-4 py-2">
+                           
+                            <div className="w-full md:w-1/2 lg:w-full h-auto">                            
+                              <img
+                                src={pathImage + item.photo}
+                                alt={`Terapia ${
+                                  item.photo.split("-")[1].split(".")[0]
+                                }`}
+                              />
+                            </div>
+                            <div className="w-full h-auto">
+                            <h3 className="font-bold">{item.name}</h3>
+                              <p>{item.description}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+
+                  
+
+
                 </div>
               </div>
             </div>
