@@ -4,10 +4,16 @@ import { ActiveLink } from "@/components/activeLink";
 import Image from "next/image";
 import LogoLight from "../../public/logo-light.svg";
 import LogoDark from "../../public/logo-dark.svg";
+import Therapy from "@/data/db/home/therapy/Therapy";
 
-export function Footer() {
+type FooterProps = {
+  therapies: Therapy[];
+};
+
+export function Footer<T>(props: FooterProps) {
   const { tema } = useContext(AppContext);
   let linkActive = "text-green-500 font-bold";
+  let linksTherapias = props.therapies;
 
   return (
     <section
@@ -66,10 +72,9 @@ export function Footer() {
         <div className="flex flex-col items-center md:items-start md:w-1/4 my-4">
           <h3 className="text-xl font-bold">Terapia(s):</h3>
           <ul className="px-3 ml-1 text-center md:text-left">
-            <li>Florais</li>
-            <li>Reiki</li>
-            <li>Acupuntura</li>
-            <li>Radiestesia</li>
+            {linksTherapias.map((item) => {
+              return <li key={item.id}>{item.name}</li>;
+            })}
           </ul>
         </div>
         <div className="flex flex-col items-center md:items-start md:w-1/4 my-4">

@@ -1,8 +1,3 @@
-import Image from "next/image";
-import florais from "../../../public/images/terapia-floral.png";
-import reiki from "../../../public/images/reiki.png";
-import acupuntura from "../../../public/images/acupuntura.png";
-
 import Therapy from "@/data/db/home/therapy/Therapy";
 import { APP_SERV } from "@/data/config/configApp";
 
