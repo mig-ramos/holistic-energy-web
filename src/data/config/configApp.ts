@@ -1,3 +1,7 @@
 export const APP_SERV = {
-    pathBaseImages: "http://localhost:3333/files/"
+    pathBaseImages: process.env.NEXT_PUBLIC_PATH_IMAGES_SERVER,
+    apiKey: String(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY),
+    lat: Number(process.env.NEXT_PUBLIC_GOOGLE_MAPS_LAT),
+    lng: Number(process.env.NEXT_PUBLIC_GOOGLE_MAPS_LNG),
+    
 }

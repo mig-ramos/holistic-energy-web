@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <section
-      className={`flex flex-col w-auto border-t-2 border-green-800  h-auto`}
+      className={`flex flex-col w-auto border-t-2 border-green-600 mt-4 h-auto`}
     >
       <div className="flex flex-col md:flex-row px-1 justify-center md:gap-8 bg-zinc-200  dark:bg-gray-900 dark:text-gray-200 text-gray-500">
         <div className="flex ml-1 pl-3 justify-center w-full md:w-1/4 mb-4">
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col items-center md:items-start md:w-1/4 my-4">
-          <h3 className="text-xl font-bold">Terapias:</h3>
+          <h3 className="text-xl font-bold">Terapia(s):</h3>
           <ul className="px-3 ml-1 text-center md:text-left">
             <li>Florais</li>
             <li>Reiki</li>

@@ -14,12 +14,12 @@ export function AboutHome<T>(props: AboutProps) {
   let aboutHome = props.about;
 
   return (
-    <section>
+    <section className="border border-solid border-green-500 rounded-3xl bg-zinc-100">
       {aboutHome.map((item) => {
         return (
           <div
             key={item.id}
-            className={`flex flex-col md:flex-row mx-auto my-auto rounded-3xl  justify-center bg-zinc-100 dark:bg-gray-700 mt-4`}
+            className={`flex flex-col md:flex-row mx-auto my-auto rounded-3xl  justify-center  dark:bg-gray-700 mt-4`}
           >
             <div className={`md:w-9/12  text-start`}>
               <div className="border-s-8 border-green-500 p-4">
@@ -29,19 +29,19 @@ export function AboutHome<T>(props: AboutProps) {
                 </h1>
               </div>
               <div
-                className={`mt-4 mr-4 text-xl text-gray-700 dark:text-gray-300`}
+                className={`mt-4 mr-4 text-xl text-gray-700 dark:text-gray-300 p-4`}
               >
                 {item.description}
               </div>
             </div>
             <div
-              className={`flex justify-center items-center mt-4 md:w-96 md:mt-0 h-auto `}
+              className={`flex justify-center items-center p-4 md:w-96 md:mt-0 h-auto `}
             >
               <img
                 src={pathImage + item.photo}
                 height={260}
                 alt={item.subTitle}
-                className="rounded-3xl w-full"
+                className="rounded-3xl w-full hover:scale-110 hover:rotate-2 duration-300"
               />
             </div>
           </div>

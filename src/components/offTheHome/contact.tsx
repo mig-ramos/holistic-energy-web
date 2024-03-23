@@ -4,30 +4,42 @@ import { TextArea } from "../ui/TextArea";
 import { InputText } from "../ui/InputText";
 import Button from "../ui/Button";
 import { toast } from "react-toastify";
+import { Mapa } from "@/components/maps/apiProvider";
+import { APP_SERV } from "@/data/config/configApp";
 
 export function Contact() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [texto, setTexto] = useState("");
 
+  const apiKey = APP_SERV.apiKey;  
+  const lat = APP_SERV.lat;
+  const lng = APP_SERV.lng;
+
   async function formContact() {
     if (nome === "" || email === "" || texto === "") {
       toast.warning("Preencher todos os campos...");
     } else {
-      return toast.info(`${nome}, tão logo que possível entraremos em contato!`);
+      return toast.info(
+        `${nome}, tão logo que possível entraremos em contato!`
+      );
     }
   }
 
   return (
-    <section className={`mx-auto my-auto rounded-3xl mt-4`}>
-      <div className={`border-s-8 border-green-500 p-4`}>
-        <h2 className={`text-green-500 text-start  text-xl`}>Formulário para contato</h2>
+    <section
+      className={`mx-auto my-auto mt-4 border border-solid border-green-500 rounded-3xl`}
+    >
+      <div className={`border-s-8 border-green-500 mt-4 p-4`}>
+        <h2 className={`text-green-500 text-start  text-xl`}>
+          Formulário para contato
+        </h2>
         <h1 className={`text-green-500 text-start  font-bold text-3xl`}>
           Entre em Contato
         </h1>
       </div>
-      <div className={`flex flex-col md:flex-row mt-4`}>
-        <div className={`md:w-1/2 w-full mb-4`}>
+      <div className={`flex flex-col md:flex-row p-4`}>
+        <div className={`md:w-1/2 w-full`}>
           {/* <h3 className={`font-bold text-2xl mb-2`}>Redes Sociais</h3>
           <ul>
             <li>
@@ -78,10 +90,10 @@ export function Contact() {
           </div>
         </div>
 
-        <div className={`md:w-1/2 w-full mb-4`}>
-          <h3 className={`font-bold text-2xl mb-2`}>Onde Estamos:</h3>
-          <div className="flex w-full h-[400px] items-center justify-center bg-slate-300 border rounded-2xl">
-            Map
+        <div className={`md:w-1/2 w-full`}>
+          <h3 className={`font-light text-xl mb-2`}>Onde Estamos:</h3>
+          <div className="flex w-full h-[380px] items-center justify-center bg-slate-300 border rounded-2xl">
+            <Mapa apiKey={apiKey} lat={lat} lng={lng} info="Estamos aqui!" />
           </div>
         </div>
       </div>
