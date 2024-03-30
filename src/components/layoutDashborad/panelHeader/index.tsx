@@ -16,9 +16,13 @@ export function PanelHeader({ role }: PanelHeaderProps) {
   return (
     <div className="w-full flex items-center h-10 bg-gray-200 dark:bg-gray-600 rounded-lg text-black dark:text-gray-200 font-medium gap-4 px-4 mb-4">
       <ButtonAlternationTheme tema={tema} alternarTema={alternarTema} />
-      
       {role === "ADMIN" && (
-        <ActiveLink href="/dashboard/profile" activeClassName={linkActive}>
+        <ActiveLink href="/dashboard" activeClassName={linkActive}>
+          <span>Home ADMIN</span>
+        </ActiveLink>
+      )}
+      {role === "ADMIN" && (
+        <ActiveLink href="/dashboard/home-setup" activeClassName={linkActive}>
           <span>Configura Home</span>
         </ActiveLink>
       )}

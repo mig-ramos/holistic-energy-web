@@ -11,18 +11,23 @@ export function Contact() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [texto, setTexto] = useState("");
+  const [tel, setTel] = useState("");
 
-  const apiKey = APP_SERV.apiKey;  
+  const apiKey = APP_SERV.apiKey;
   const lat = APP_SERV.lat;
   const lng = APP_SERV.lng;
+  const phone = APP_SERV.phone;
+
+  let message = "";
 
   async function formContact() {
     if (nome === "" || email === "" || texto === "") {
       toast.warning("Preencher todos os campos...");
     } else {
-      return toast.info(
-        `${nome}, tão logo que possível entraremos em contato!`
+      message = encodeURIComponent(
+        `Meu nome: ${nome} \n Email: ${email} /n Assunto: ${texto}`
       );
+      return window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
     }
   }
 

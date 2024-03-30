@@ -18,7 +18,7 @@ export function Carosel<T>(props: BannerProps) {
   let banner = props.slide;
 
   return (
-    <section className={``}>
+    <section className={`mb-4`}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={50}
@@ -26,7 +26,7 @@ export function Carosel<T>(props: BannerProps) {
         autoplay={{
           delay: 3000,
         }}
-        pagination={true}
+        pagination={false}
         navigation={true}
         allowSlidePrev={true}
         allowSlideNext={true}
@@ -36,12 +36,15 @@ export function Carosel<T>(props: BannerProps) {
         {banner.map((item) => {
           return (
             <SwiperSlide key={item.id}>
-              <div className="h-auto w-full rounded-xl">
+              <div className="bg-transparent rounded-xl">
                 <img
-                  src={pathImage + item.slide}
-                  className="w-full rounded-xl"
-                  alt={`Slide ${item.slide.split("-")[1]}`}
+                  src={`${pathImage}${item.name}`}
+                  className="w-full rounded-t-xl opacity-80"
+                  alt={`Slide ${item.name}.split("-")[1]}`}
                 />
+                <h1 className="z-99 bg-transparent text-md text-center md:text-3xl text-yellow-900 dark:text-yellow-600 p-2  md:p-4">
+                  {item.slogan}
+                </h1>
               </div>
             </SwiperSlide>
           );

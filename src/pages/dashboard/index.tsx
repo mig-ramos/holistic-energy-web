@@ -55,33 +55,24 @@ export default function Dashboard() {
               </h3>
               <div className="flex-col lg:flex lg:flex-row gap-4">
                 <div className="flex flex-col lg:w-1/2 ">
-                  <div className="bg-slate-100 rounded-xl p-4">
+                  <div className="bg-slate-100 rounded-xl p-4 border-2 border-green-200">
                     <p className="font-bold">Sessão: SLIDES</p>
                     <div className="flex flex-col">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-1">
                         {slides.map((item) => {
                           return (
-                            <div
-                              key={item.id}
-                              className="h-auto w-full rounded-xl"
-                            >
-                              <span className="font-bold">{`${
-                                item.slide
-                                  .split("-")[1]
-                                  .split(".")[0][0]
-                                  .toUpperCase() +
-                                item.slide
-                                  .split("-")[1]
-                                  .split(".")[0]
-                                  .substring(1)
-                              }`}</span>
+                            <div key={item.id} className="h-auto w-full rounded-xl">
+                              <span className="font-bold text-green-500 text-xl">
+                              {item.name?.split("-")[1].split(".")[0][0].toUpperCase()}{item.name?.split("-")[1].split(".")[0].substring(1)}
+                              </span>
                               <img
-                                src={pathImage + item.slide}
+                                src={`${pathImage}${item.name}`}
                                 className="w-full rounded"
                                 alt={`Slide ${
-                                  item.slide.split("-")[1].split(".")[0]
-                                }`}
+                                  item.name}.split("-")[1].split(".")[0]
+                                `}
                               />
+                              <p className="p-4"><span className="font-bold">Slogan:</span> {item.slogan}</p>
                             </div>
                           );
                         })}

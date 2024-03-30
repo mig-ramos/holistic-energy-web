@@ -118,7 +118,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   async function signUp({ name, email, password }: SignUpProps) {
     // alert(name);
-    const response = await api.post("/users", {
+    const response = await api.post("/user/add", {
       name,
       email,
       password,

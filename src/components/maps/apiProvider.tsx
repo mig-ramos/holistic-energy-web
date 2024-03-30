@@ -3,9 +3,9 @@ import {
   APIProvider,
   Map,
   Marker,
-  useMarkerRef,
+  useAdvancedMarkerRef,
   InfoWindow,
-} from "@vis.gl/react-google-maps";
+  } from "@vis.gl/react-google-maps";
 
 interface MapaProps {
   lat: number;
@@ -15,7 +15,7 @@ interface MapaProps {
 }
 
 export function Mapa({ apiKey, lat, lng, info }: MapaProps) {
-  const [markerRef, marker] = useMarkerRef();
+  const [ marker ] = useAdvancedMarkerRef();
 
   useEffect(() => {
     if (!marker) {
@@ -25,8 +25,8 @@ export function Mapa({ apiKey, lat, lng, info }: MapaProps) {
 
   return (
     <APIProvider apiKey={apiKey}>
-      <Map zoom={17} center={{ lat, lng }}>
-        <Marker ref={markerRef} position={{ lat, lng }} />
+      <Map zoom={17} center={{ lat, lng }} mapId={"DEMO_MAP_ID"} >
+        <Marker position={{ lat, lng }} title={info} />
         <InfoWindow position={{ lat, lng }}>{info}</InfoWindow>
       </Map>
     </APIProvider>

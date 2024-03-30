@@ -1,21 +1,27 @@
-export default class Slide{
+export default class Slide {
     #id: string
-    #slide: string
+    #name?: string
+    #slogan: string
 
-    constructor(slide: string, id: string = ''){
-        this.#slide = slide
+    constructor(name: string, slogan: string, id: string = '') {
+        this.#name = name
+        this.#slogan = slogan
         this.#id = id
     }
 
-    static vazio(){
+    static vazio() {
         return new Slide('', '')
     }
 
-    get id(){
+    get id() {
         return this.#id
     }
 
-    get slide(){
-        return this.#slide
+    get name() {
+        return this.#name
+    }
+
+    get slogan() {
+        return this.#slogan
     }
 }
