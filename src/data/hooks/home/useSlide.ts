@@ -41,8 +41,8 @@ export function useSlide() {
         exibirFormulario()
     }
 
-    function upSlide(slide: Slide) {
-        repo.salvar(slide)
+    async function upSlide(slide: Slide) {
+        await repo.salvar(slide)
         listAll()
     }
 
