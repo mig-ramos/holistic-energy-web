@@ -7,14 +7,14 @@ export default class CollectionTherapy implements TherapyRepository {
     async salvar(therapy: Therapy): Promise<Therapy> {
         if (therapy?.id) {
             const id = therapy?.id
-            const response = await api.put(`/therapy/up/${id}`, {
+            const response = await api.put(`/home/therapy/up/${id}`, {
                 name: therapy.name,
                 description: therapy.description,
                 photo: therapy.photo,
             })
             return response.data
         } else {
-            const response = await api.post('/therapy', {
+            const response = await api.post('/home/therapy', {
                 name: therapy.name,
                 description: therapy.description,
                 photo: therapy.photo,
@@ -25,12 +25,12 @@ export default class CollectionTherapy implements TherapyRepository {
 
     async excluir(therapy: Therapy): Promise<void> {
         const id = therapy?.id
-        const response = await api.delete(`/therapy/del/${id}`, undefined)
+        const response = await api.delete(`/home/therapy/del/${id}`, undefined)
         return
     }
 
     async listarTodos(): Promise<Therapy[]> {
-        const response = await api.get('/therapy', undefined)
+        const response = await api.get('/home/therapy', undefined)
         return response.data ?? []
     }
 }

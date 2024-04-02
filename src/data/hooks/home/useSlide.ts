@@ -9,7 +9,6 @@ export function useSlide() {
 
     const { tabelaVisivel, exibirTabela, exibirFormulario } = useTabelaOuForm()
 
-
     const [slide, setSlide] = useState<Slide>(Slide.vazio());
     const [slides, setSlides] = useState<Slide[]>([]);
 
@@ -44,6 +43,7 @@ export function useSlide() {
     async function upSlide(slide: Slide) {
         await repo.salvar(slide)
         listAll()
+        exibirTabela()
     }
 
     return {

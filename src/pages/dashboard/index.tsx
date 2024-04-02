@@ -186,8 +186,14 @@ export default function Dashboard() {
                     );
                   })}
 
-                  <div className="flex flex-col bg-slate-100 rounded-xl p-4">
-                    <p className="font-bold">Sessão: TERAPIAS</p>
+                  <div className="flex flex-col bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                    <Link
+                      href={"/dashboard/home-setup/therapy"}
+                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                    >
+                      <span className="font-bold">Sessão: TERAPIA(s)</span>{" "}
+                      CLICK para Editar...
+                    </Link>
                     <div className=" h-auto gap-4">
                       {therapies.map((item) => {
                         return (

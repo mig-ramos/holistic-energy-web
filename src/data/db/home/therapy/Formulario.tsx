@@ -1,29 +1,28 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { InputText } from "@/components/ui/InputText";
-import About from "./About";
+import Therapy from "./Therapy";
 import Button from "@/components/ui/Button";
 import { TextArea } from "@/components/ui/TextArea";
 import { FiUpload } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { api } from "@/services/apiClient";
 import { APP_SERV } from "@/data/config/configApp";
-import { useAbout } from "@/data/hooks/home/useAbout";
+import { useTherapy } from "@/data/hooks/home/useTherapy";
 
 interface FormularioProps {
-  about: About;
-  aboutMudou?: (about: About) => void;
+  therapy: Therapy;
+  therapyMudou?: (therapy: Therapy) => void;
   cancelado?: () => void;
 }
 
 export default function Formulario(props: FormularioProps) {
-  const { listAll } = useAbout();
+  const { listAll } = useTherapy();
 
-  const id = props.about?.id ?? null;
-  const [photo, setPhoto] = useState(props.about?.photo ?? "");
-  const [title, setTitle] = useState(props.about?.title ?? "");
-  const [subTitle, setSubTitle] = useState(props.about?.subTitle ?? "");
+  const id = props.therapy?.id ?? null;
+  const [photo, setPhoto] = useState(props.therapy?.photo ?? "");
+  const [name, setName] = useState(props.therapy?.name ?? "");
   const [description, setDescription] = useState(
-    props.about?.description ?? ""
+    props.therapy?.description ?? ""
   );
 
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -57,29 +56,28 @@ export default function Formulario(props: FormularioProps) {
   async function handleRegister(event: FormEvent) {
     event.preventDefault();
 
-    if (props.about.id) {
-      props.aboutMudou?.(new About(title, subTitle, description, photo, id));
+    if (props.therapy.id) {
+      props.therapyMudou?.(new Therapy(name, description, photo, id));
     } else {
       try {
         const data = new FormData();
 
-        if (title === "" || subTitle === "" || description === "" || imageAvatar === null) {
+        if (name === "" || description === "" || imageAvatar === null) {
+          console.log(name + description + imageAvatar)
           toast.error("Preencha todos os campos!");
           return;
         }
-        data.append("title", title);
-        data.append("subTitle", subTitle);
+        data.append("name", name);
         data.append("description", description);
         data.append("file", imageAvatar);
 
-        await api.post("/home/about", data);
+        await api.post("/home/therapy", data);
 
         toast.success("Cadastrado com sucesso!");
       } catch (err) {
         toast.error("Ops erro ao cadastrar!");
       } finally {
-        setTitle("");
-        setSubTitle("");
+        setName("");
         setDescription("");
         setPhoto("");
         setImageAvatar(null);
@@ -91,35 +89,36 @@ export default function Formulario(props: FormularioProps) {
 
   return (
     <div>
-      <form className="mt-4" onSubmit={handleRegister}>
+      <form className="mt-4 flex flex-col" onSubmit={handleRegister}>
         {id ? <InputText label="Id" valor={id} somenteLeitura /> : false}
 
-        {props.about.id ? (
+        {props.therapy.id ? (
           <img
-            src={pathImage + props.about.photo}
-            alt={`Sobre ${props.about.photo.split("-")[1].split(".")[0]}`}
+            src={pathImage + props.therapy.photo}
+            alt={`Terapia ${props.therapy.photo.split("-")[1].split(".")[0]}`}
             className="mt-4 rounded-lg"
           />
         ) : (
           <label
-            className={`w-full h-[380] relative bg-slate-900 mb-4 rounded flex justify-center items-center cursor-pointer`}
+            className={"w-full bg-blue-900 mb-4 rounded-xl cursor-pointer flex justify-center items-center"} 
           >
             <span
-              className={`absolute top-[50%] z-[99] opacity-70 transition-all hover:scale-125 hover:opacity-100`}
+              className={`absolute z-50 opacity-20 transition-all hover:scale-125 hover:opacity-100 `}
             >
-              <FiUpload size={30} color="#BBB" />
+              <FiUpload size={40} color="#BBB" />
             </span>
             <input
               type="file"
               accept="image/png, image/jpeg"
               onChange={handleFile}
               className="hidden"
+              // className="hidden"
             />
             {avatarUrl && (
               <img
                 className="w-full h-full object-cover rounded-md"
                 src={avatarUrl}
-                alt="Foto do Produto"
+                alt="Foto da Terapia"
                 width={250}
                 height={250}
               />
@@ -127,7 +126,7 @@ export default function Formulario(props: FormularioProps) {
           </label>
         )}
 
-        {props.about.id && (
+        {props.therapy.id && (
           <InputText
             label="Foto"
             valor={photo}
@@ -139,22 +138,14 @@ export default function Formulario(props: FormularioProps) {
         <InputText
           tipo="text"
           label="Título"
-          valor={title}
-          valorMudou={setTitle}
-          obrigatorio
-        />
-
-        <InputText
-          tipo="text"
-          label="Sub-Título"
-          valor={subTitle}
-          valorMudou={setSubTitle}
+          valor={name}
+          valorMudou={setName}
           obrigatorio
         />
 
         <TextArea
           label="Descrição"
-          rows={4}
+          rows={5}
           valor={description}
           valorMudou={setDescription}
           obrigatorio
@@ -162,12 +153,12 @@ export default function Formulario(props: FormularioProps) {
 
         <div>
           {/* {props.slideMudou?.(new Slide(name, slogan, id))} */}
-          {props.about.id ? (
+          {props.therapy.id ? (
             <Button
               cor="blue"
               onClick={() =>
-                props.aboutMudou?.(
-                  new About(title, subTitle, description, photo, id)
+                props.therapyMudou?.(
+                  new Therapy(name, description, photo, id)
                 )
               }
             >

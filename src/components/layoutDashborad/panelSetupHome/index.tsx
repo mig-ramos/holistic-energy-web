@@ -24,7 +24,7 @@ export function PanelSetupHome({ role }: PanelSetuHomeProps) {
           href="/dashboard/home-setup/slide"
           activeClassName={linkActive}
         >
-          <span>Slide</span>
+          <span>Slide(s)</span>
         </ActiveLink>
       )}
       {role === "ADMIN" && (
@@ -36,10 +36,10 @@ export function PanelSetupHome({ role }: PanelSetuHomeProps) {
         </ActiveLink>
       )}
       <ActiveLink
-        href="/dashboard/home-setup/therapies"
+        href="/dashboard/home-setup/therapy"
         activeClassName={linkActive}
       >
-        <span>Terapias</span>
+        <span>Terapia(s)</span>
       </ActiveLink>
       <div className={`ml-auto bg-yellow-200 px-2 py-1 rounded-xl`}>
         <ActiveLink href="/dashboard" activeClassName={linkActive}>

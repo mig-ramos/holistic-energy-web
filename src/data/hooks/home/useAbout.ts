@@ -7,8 +7,7 @@ import useTabelaOuForm from "./useTabelaOuForm";
 export function useAbout() {
     const repo: AboutRepository = new AboutCollection();
 
-    const { tabelaVisivel, exibirTabela, exibirFormulario } = useTabelaOuForm()
-  
+    const { tabelaVisivel, exibirTabela, exibirFormulario } = useTabelaOuForm()  
 
     const [about, setAbout] = useState<About>(About.vazio());
     const [abouts, setAbouts] = useState<About[]>([]);
@@ -44,6 +43,7 @@ export function useAbout() {
     async function upAbout(about: About) {
         await repo.salvar(about)
         listAll()
+        exibirTabela()
     }
 
     return {
