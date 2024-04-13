@@ -35,6 +35,14 @@ export function PanelSetupHome({ role }: PanelSetuHomeProps) {
           <span>Sobre Mim</span>
         </ActiveLink>
       )}
+      {role === "ADMIN" && (
+        <ActiveLink
+          href="/dashboard/home-setup/book-therapy"
+          activeClassName={linkActive}
+        >
+          <span>Marcar Terapia</span>
+        </ActiveLink>
+      )}
       <ActiveLink
         href="/dashboard/home-setup/therapy"
         activeClassName={linkActive}

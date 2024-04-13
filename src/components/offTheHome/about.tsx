@@ -1,6 +1,3 @@
-import Image from "next/image";
-import mim from "../../../public/images/mim.jpg";
-
 import About from "@/data/db/home/about/About";
 import { APP_SERV } from "@/data/config/configApp";
 

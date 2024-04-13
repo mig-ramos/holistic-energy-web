@@ -6,18 +6,21 @@ import Content from "@/components/offTheHome/content";
 import Head from "next/head";
 import { LayoutDasboard } from "@/components/layoutDashborad";
 import { PanelHeader } from "@/components/layoutDashborad/panelHeader";
-import { useSlide } from "@/data/hooks/home/useSlide";
+
 import { APP_SERV } from "@/data/config/configApp";
 
 import Link from "next/link";
+import { useSlide } from "@/data/hooks/home/useSlide";
 import { useAbout } from "@/data/hooks/home/useAbout";
 import { useTherapy } from "@/data/hooks/home/useTherapy";
+import { useBookTherapy } from "@/data/hooks/home/useBookTherapy";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
   const { slides } = useSlide();
   const { abouts } = useAbout();
   const { therapies } = useTherapy();
+  const { bookTherapies } = useBookTherapy();
 
   const pathImage = APP_SERV.pathBaseImages;
 
@@ -103,8 +106,65 @@ export default function Dashboard() {
                           );
                         })}
                       </div>
-                      nN
                     </div>
+                  </div>
+
+                  <div className="bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                    <Link
+                      href={"/dashboard/home-setup/book-therapy"}
+                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                    >
+                      <span className="font-bold">
+                        Sessão:{` MARCAR TERAPIA`}
+                      </span>{" "}
+                      CLICK para Editar...
+                    </Link>
+
+                    {bookTherapies.map((item) => {
+                      return (
+                        <div className=""
+                          key={item.id}
+                        >
+                          <div className="flex flex-col md:flex-row h-auto gap-4">
+                            <div className="w-full md:w1/2">
+                              <p className="">
+                                <span className="font-bold text-green-500">
+                                  Subtítulo:{" "}
+                                </span>
+                                {item.subTitle}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Título:{" "}
+                                </span>{" "}
+                                {item.title}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Título do Botão:{" "}
+                                </span>{" "}
+                                {item.buttonTitle}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Descrição:{" "}
+                                </span>
+                                {item.description}
+                              </p>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                              <img
+                                className="rounded-md w-full"
+                                src={pathImage + item.photo}
+                                alt={`BookTherapy ${
+                                  item.photo.split("-")[1].split(".")[0]
+                                }`}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <div className="bg-green-100 rounded-xl p-4">
@@ -133,58 +193,60 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div className="lg:w-1/2 flex flex-col">
-                  {abouts.map((item) => {
-                    return (
-                      <div
-                        className="bg-slate-100 rounded-xl p-4 border-2 border-green-200"
-                        key={item.id}
-                      >
-                        <Link
-                          href={"/dashboard/home-setup/about"}
-                          className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                  <div>
+                    {abouts.map((item) => {
+                      return (
+                        <div
+                          className="bg-slate-100 rounded-xl p-4 border-2 border-green-200"
+                          key={item.id}
                         >
-                          <span className="font-bold">
-                            Sessão:{" "}
-                            {item.subTitle
-                              ? item.subTitle.toUpperCase()
-                              : "SOBRE MIM"}
-                          </span>{" "}
-                          CLICK para Editar...
-                        </Link>
-                        <div className="flex flex-col md:flex-row h-auto gap-4">
-                          <div className="w-full md:w1/2">
-                            <p className="">
-                              <span className="font-bold text-green-500">
-                                Subtítulo:{" "}
-                              </span>
-                              {item.subTitle}
-                            </p>
-                            <p>
-                              <span className="font-bold text-green-500">
-                                Título:{" "}
-                              </span>{" "}
-                              {item.title}
-                            </p>
-                            <p>
-                              <span className="font-bold text-green-500">
-                                Descrição:{" "}
-                              </span>
-                              {item.description}
-                            </p>
-                          </div>
-                          <div className="w-full md:w-1/2">
-                            <img
-                              className="rounded-md w-full"
-                              src={pathImage + item.photo}
-                              alt={`Sobre ${
-                                item.photo.split("-")[1].split(".")[0]
-                              }`}
-                            />
+                          <Link
+                            href={"/dashboard/home-setup/about"}
+                            className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                          >
+                            <span className="font-bold">
+                              Sessão:{" "}
+                              {item.subTitle
+                                ? item.subTitle.toUpperCase()
+                                : "SOBRE MIM"}
+                            </span>{" "}
+                            CLICK para Editar...
+                          </Link>
+                          <div className="flex flex-col md:flex-row h-auto gap-4">
+                            <div className="w-full md:w1/2">
+                              <p className="">
+                                <span className="font-bold text-green-500">
+                                  Subtítulo:{" "}
+                                </span>
+                                {item.subTitle}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Título:{" "}
+                                </span>{" "}
+                                {item.title}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Descrição:{" "}
+                                </span>
+                                {item.description}
+                              </p>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                              <img
+                                className="rounded-md w-full"
+                                src={pathImage + item.photo}
+                                alt={`Sobre ${
+                                  item.photo.split("-")[1].split(".")[0]
+                                }`}
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
 
                   <div className="flex flex-col bg-slate-100 rounded-xl p-4 border-2 border-green-200">
                     <Link
