@@ -6,17 +6,26 @@ import Button from "../ui/Button";
 import { toast } from "react-toastify";
 import { Mapa } from "@/components/maps/apiProvider";
 import { APP_SERV } from "@/data/config/configApp";
+import MapLocal from "@/data/db/home/contact/map/MapLocal";
 
-export function Contact() {
+type MapLocalProps = {
+  mapLocal: MapLocal[];
+};
+
+export function Contact<T>(props: MapLocalProps) {
+  const pathImage = APP_SERV.pathBaseImages;
+
+  let mapLocalHome = props.mapLocal;
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [texto, setTexto] = useState("");
-  const [tel, setTel] = useState("");
+  const [phone, setPhone] = useState(APP_SERV.phone);
 
   const apiKey = APP_SERV.apiKey;
   const lat = APP_SERV.lat;
   const lng = APP_SERV.lng;
-  const phone = APP_SERV.phone;
+  const mapId = APP_SERV.mapId;
 
   let message = "";
 
@@ -24,10 +33,18 @@ export function Contact() {
     if (nome === "" || email === "" || texto === "") {
       toast.warning("Preencher todos os campos...");
     } else {
-      message = encodeURIComponent(
-        `Meu nome: ${nome} \n Email: ${email} /n Assunto: ${texto}`
-      );
-      return window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+      try {
+        message = encodeURIComponent(
+          `Meu nome: ${nome} \n Email: ${email} \n Assunto: ${texto}`
+        );
+        return window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+      } catch (error) {
+        toast.error("Não foi possível enviar o WhatsApp...");
+      } finally {
+        setNome("");
+        setEmail("");
+        setTexto("");
+      }
     }
   }
 
@@ -85,7 +102,7 @@ export function Contact() {
                 label="Assunto"
                 valor={texto}
                 valorMudou={setTexto}
-                rows={6}
+                rows={3}
                 obrigatorio
               />
               <Button cor="blue" onClick={formContact}>
@@ -95,11 +112,33 @@ export function Contact() {
           </div>
         </div>
 
-        <div className={`md:w-1/2 w-full`}>
-          <h3 className={`font-light text-xl mb-2`}>Onde Estamos:</h3>
-          <div className="flex w-full h-[380px] items-center justify-center bg-slate-300 border rounded-2xl">
-            <Mapa apiKey={apiKey} lat={lat} lng={lng} info="Estamos aqui!" />
-          </div>
+        <div className={`mt-4 md:mt-0 md:w-1/2 w-full`}>
+          {mapLocalHome.map((item) => {
+            return (
+              <div key={item.id}>
+                <h3 className={`font-light text-xl mb-2`}>{item.title}:</h3>
+                {!item.info ? (
+                  <img
+                    src={pathImage + item.photo}
+                    alt={item.title}
+                    className="rounded-2xl flex size-auto hover:scale-140"
+                  />
+                ) : (
+                  <div>
+                    <div className="flex w-full h-[380px] items-center justify-center bg-slate-300 border rounded-2xl">
+                      <Mapa
+                        apiKey={item.apiKey}
+                        lat={Number(item.lat.trim())}
+                        lng={Number(item.lng.trim())}
+                        mapId={item.mapId}
+                        info={item.info}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

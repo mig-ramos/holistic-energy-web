@@ -14,6 +14,8 @@ import { useSlide } from "@/data/hooks/home/useSlide";
 import { useAbout } from "@/data/hooks/home/useAbout";
 import { useTherapy } from "@/data/hooks/home/useTherapy";
 import { useBookTherapy } from "@/data/hooks/home/useBookTherapy";
+import { useMapLocal } from "@/data/hooks/home/useMapLocal";
+import { Mapa } from "@/components/maps/apiProvider";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
@@ -21,6 +23,7 @@ export default function Dashboard() {
   const { abouts } = useAbout();
   const { therapies } = useTherapy();
   const { bookTherapies } = useBookTherapy();
+  const { mapLocals } = useMapLocal();
 
   const pathImage = APP_SERV.pathBaseImages;
 
@@ -122,9 +125,7 @@ export default function Dashboard() {
 
                     {bookTherapies.map((item) => {
                       return (
-                        <div className=""
-                          key={item.id}
-                        >
+                        <div className="" key={item.id}>
                           <div className="flex flex-col md:flex-row h-auto gap-4">
                             <div className="w-full md:w1/2">
                               <p className="">
@@ -160,6 +161,85 @@ export default function Dashboard() {
                                   item.photo.split("-")[1].split(".")[0]
                                 }`}
                               />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                    <Link
+                      href={"/dashboard/home-setup/map-local"}
+                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                    >
+                      <span className="font-bold">
+                        Sessão:{` Mapa do Local`}
+                      </span>{" "}
+                      CLICK para Editar...
+                    </Link>
+
+                    {mapLocals.map((item) => {
+                      return (
+                        <div className="" key={item.id}>
+                          <div className="flex flex-col md:flex-row h-auto gap-4">
+                            <div className="w-full md:w1/2">
+                              <p className="">
+                                <span className="font-bold text-green-500">
+                                  Título:{" "}
+                                </span>
+                                {item.title}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  API KEY:{" "}
+                                </span>{" "}
+                                {item.apiKey}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Latitude:{" "}
+                                </span>{" "}
+                                {item.lat}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Longitude:{" "}
+                                </span>
+                                {item.lng}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Info Mapa:{" "}
+                                </span>
+                                {item.info}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Google mapId:{" "}
+                                </span>
+                                {item.mapId}
+                              </p>
+                              <span className=" ">Se <span className="text-green-500 font-bold"><u>Info Mapa</u></span> estiver preenchido será usado o Google Map</span>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                              {!item.info ? (
+                                <img
+                                  className="rounded-md w-full"
+                                  src={pathImage + item.photo}
+                                  alt={`Local ${
+                                    item.photo.split("-")[1].split(".")[0]
+                                  }`}
+                                />
+                              ) : (
+                                <Mapa
+                                  apiKey={item.apiKey}
+                                  lat={Number(item.lat.trim())}
+                                  lng={Number(item.lng.trim())}
+                                  mapId={item.mapId}
+                                  info={item.info}
+                                />
+                              )}
                             </div>
                           </div>
                         </div>

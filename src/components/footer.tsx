@@ -21,25 +21,35 @@ export function Footer<T>(props: FooterProps) {
     >
       <div className="flex flex-col md:flex-row px-1 justify-center md:gap-8 bg-zinc-200  dark:bg-gray-900 dark:text-gray-200 text-gray-500">
         <div className="flex ml-1 pl-3 justify-center w-full md:w-1/4 mb-4">
-          <ActiveLink href={"/"}>
-            {tema === "" ? (
-              <Image
-                src={LogoLight}
-                alt="Logo do site"
-                width={150}
-                objectFit=""
-                placeholder={`empty`}
-              />
-            ) : (
-              <Image
-                src={LogoDark}
-                alt="Logo do site"
-                width={150}
-                objectFit=""
-                placeholder={`empty`}
-              />
-            )}
-          </ActiveLink>
+          <div>
+            <ActiveLink href={"/"}>
+              {tema === "" ? (
+                <Image
+                  src={LogoLight}
+                  alt="Logo do site"
+                  width={150}
+                  objectFit=""
+                  placeholder={`empty`}
+                />
+              ) : (
+                <Image
+                  src={LogoDark}
+                  alt="Logo do site"
+                  width={150}
+                  objectFit=""
+                  placeholder={`empty`}
+                />
+              )}
+            </ActiveLink>
+            <div>
+              <h3 className="text-xl font-bold">Diversos:</h3>
+              <ul className="px-3 ml-1 text-center md:text-left">
+                <li>Política da Informação</li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="flex flex-col items-center md:items-start md:w-1/4 my-4">
           <h3 className="text-xl font-bold">Links:</h3>
@@ -78,11 +88,25 @@ export function Footer<T>(props: FooterProps) {
           </ul>
         </div>
         <div className="flex flex-col items-center md:items-start md:w-1/4 my-4">
-          <h3 className="text-xl font-bold">Diversos:</h3>
+          <h3 className="text-xl font-bold">Redes Sociais:</h3>
           <ul className="px-3 ml-1 text-center md:text-left">
-            <li>Política da Informação</li>
-            <li></li>
-            <li></li>
+            <li>
+              <span className="font-bold">Zap:</span> 11 45673-4567
+            </li>
+            <li>
+              <span className="font-bold">E-mail:</span>{" "}
+              terapias-holisticas@teste.com
+            </li>
+            <li>
+              <span className="font-bold">Atendimento:</span> das 09:00hs às
+              16:00hs
+            </li>
+
+            <ul className="flex flex-row gap-4">
+              <li>Face</li>
+              <li>Insta</li>
+              <li>YouTube</li>
+            </ul>
           </ul>
         </div>
       </div>

@@ -10,12 +10,14 @@ import { useSlide } from "@/data/hooks/home/useSlide";
 import { useAbout } from "@/data/hooks/home/useAbout";
 import { useTherapy } from "@/data/hooks/home/useTherapy";
 import { useBookTherapy } from "@/data/hooks/home/useBookTherapy";
+import { useMapLocal } from "@/data/hooks/home/useMapLocal";
 
 export default function Home() {
   const { slides } = useSlide();
   const { abouts } = useAbout();
   const { therapies } = useTherapy();
   const { bookTherapies } = useBookTherapy();
+  const { mapLocals } = useMapLocal();
 
   return (
     <>
@@ -32,7 +34,7 @@ export default function Home() {
           <AboutHome about={abouts} />
           <Therapies therapy={therapies} />
           <BookTherapyHome bookTherapy={bookTherapies} />
-          <Contact />
+          <Contact mapLocal={mapLocals} />
         </Content>
       </main>
     </>

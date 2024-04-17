@@ -12,9 +12,10 @@ interface MapaProps {
   lng: number;
   apiKey: string;
   info?: string;
+  mapId: string;
 }
 
-export function Mapa({ apiKey, lat, lng, info }: MapaProps) {
+export function Mapa({ apiKey, lat, lng, info, mapId }: MapaProps) {
   const [ marker ] = useAdvancedMarkerRef();
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export function Mapa({ apiKey, lat, lng, info }: MapaProps) {
 
   return (
     <APIProvider apiKey={apiKey}>
-      <Map zoom={17} center={{ lat, lng }} mapId={"DEMO_MAP_ID"} >
+      <Map zoom={17} center={{ lat, lng }} mapId={mapId} >
         <Marker position={{ lat, lng }} title={info} />
         <InfoWindow position={{ lat, lng }}>{info}</InfoWindow>
       </Map>
