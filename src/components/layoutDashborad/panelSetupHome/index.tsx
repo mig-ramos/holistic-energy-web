@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../data/contexts/auth/AuthContext";
 import { ActiveLink } from "../../activeLink";
 import useAppData from "@/data/hooks/useAppData";
-import { ButtonAlternationTheme } from "@/components/buttonAlternationTheme";
 
 interface PanelSetuHomeProps {
   role: string;
@@ -24,7 +23,7 @@ export function PanelSetupHome({ role }: PanelSetuHomeProps) {
           href="/dashboard/home-setup/slide"
           activeClassName={linkActive}
         >
-          <span>Slide(s)</span>
+          <span>Slides</span>
         </ActiveLink>
       )}
       {role === "ADMIN" && (
@@ -55,9 +54,9 @@ export function PanelSetupHome({ role }: PanelSetuHomeProps) {
         href="/dashboard/home-setup/therapy"
         activeClassName={linkActive}
       >
-        <span>Terapia(s)</span>
+        <span>Terapias</span>
       </ActiveLink>
-      <div className={`ml-auto bg-yellow-200 px-2 py-1 rounded-xl`}>
+      <div className={`ml-auto bg-yellow-200 dark:bg-yellow-700 px-2 py-1 rounded-xl`}>
         <ActiveLink href="/dashboard" activeClassName={linkActive}>
           <span>VOLTAR</span>
         </ActiveLink>

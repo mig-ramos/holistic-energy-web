@@ -65,10 +65,10 @@ export default function Dashboard() {
               </h3>
               <div className="flex-col lg:flex lg:flex-row gap-4">
                 <div className="flex flex-col lg:w-1/2 ">
-                  <div className="bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/slide"}
-                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                      className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
                     >
                       <span className="font-bold">Sessão: SLIDES</span> CLICK
                       para Editar...
@@ -112,10 +112,10 @@ export default function Dashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/book-therapy"}
-                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                      className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
                     >
                       <span className="font-bold">
                         Sessão:{` MARCAR TERAPIA`}
@@ -168,10 +168,10 @@ export default function Dashboard() {
                     })}
                   </div>
 
-                  <div className="bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/map-local"}
-                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                      className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
                     >
                       <span className="font-bold">
                         Sessão:{` Mapa do Local`}
@@ -247,7 +247,7 @@ export default function Dashboard() {
                     })}
                   </div>
 
-                  <div className="bg-green-100 rounded-xl p-4">
+                  <div className="bg-green-100 dark:bg-slate-600 rounded-xl p-4">
                     <p>Sessão: EXPEDIENTE</p>
                     <div className="flex h-auto gap-4">
                       <div className="w-full bg-orange-200">
@@ -277,12 +277,12 @@ export default function Dashboard() {
                     {abouts.map((item) => {
                       return (
                         <div
-                          className="bg-slate-100 rounded-xl p-4 border-2 border-green-200"
+                          className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200"
                           key={item.id}
                         >
                           <Link
                             href={"/dashboard/home-setup/about"}
-                            className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                            className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
                           >
                             <span className="font-bold">
                               Sessão:{" "}
@@ -328,10 +328,10 @@ export default function Dashboard() {
                     })}
                   </div>
 
-                  <div className="flex flex-col bg-slate-100 rounded-xl p-4 border-2 border-green-200">
+                  <div className="flex flex-col bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/therapy"}
-                      className="flex gap-10 bg-yellow-300 px-3 py-2 rounded-xl mb-2"
+                      className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
                     >
                       <span className="font-bold">Sessão: TERAPIA(s)</span>{" "}
                       CLICK para Editar...
