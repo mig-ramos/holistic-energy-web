@@ -5,6 +5,9 @@ import Image from "next/image";
 import LogoLight from "../../public/logo-light.svg";
 import LogoDark from "../../public/logo-dark.svg";
 import Therapy from "@/data/db/home/therapy/Therapy";
+import { MessageCircle, Mail, CalendarClock } from "lucide-react";
+import { IconeFacebook, IconeInstagram, IconeYoutube } from "./icons";
+import Link from "next/link";
 
 type FooterProps = {
   therapies: Therapy[];
@@ -14,6 +17,14 @@ export function Footer<T>(props: FooterProps) {
   const { tema } = useContext(AppContext);
   let linkActive = "text-green-500 font-bold";
   let linksTherapias = props.therapies;
+
+  function telefonar() {
+    let phone = "11456734567";
+    let message = encodeURIComponent(
+      `Meu nome: ${"Terapeuta da Silva"} \n Email: ${"terapias-holisticas@teste.com"} \n Assunto: ${"Como é o atendimento de ..."}`
+    );
+    return window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  }
 
   return (
     <section
@@ -91,21 +102,53 @@ export function Footer<T>(props: FooterProps) {
           <h3 className="text-xl font-bold">Redes Sociais:</h3>
           <ul className="px-3 ml-1 text-center md:text-left">
             <li>
-              <span className="font-bold">Zap:</span> 11 45673-4567
+              <Link className="flex" href={""} onClick={telefonar}>
+                {" "}
+                <span className="font-bold">
+                  <MessageCircle color="#07ba00" />
+                </span>
+                &nbsp;11 45673-4567
+              </Link>
             </li>
             <li>
-              <span className="font-bold">E-mail:</span>{" "}
-              terapias-holisticas@teste.com
+              <Link
+                href={
+                  "mailto:terapias-holisticas@teste.com?subject=Holistic_Energy&body=Como..."
+                }
+                className="flex"
+              >
+                {" "}
+                <span className="font-bold">
+                  <Mail color="#07ba00" />
+                </span>
+                &nbsp; terapias-holisticas@teste.com
+              </Link>
             </li>
             <li>
-              <span className="font-bold">Atendimento:</span> das 09:00hs às
-              16:00hs
+              <Link href={"/dashboard"} className="flex">
+                <span className="font-bold">
+                  <CalendarClock color="#07ba00" />
+                </span>
+                &nbsp; das 09:00hs às 16:00hs
+              </Link>
             </li>
 
-            <ul className="flex flex-row gap-4">
-              <li>Face</li>
-              <li>Insta</li>
-              <li>YouTube</li>
+            <ul className="flex flex-row gap-8 mt-4 justify-center">
+              <li className="text-green-600">
+                <Link href="https://www.facebook.com/?locale=pt_BR">
+                  <IconeFacebook />
+                </Link>
+              </li>
+              <li className="text-green-600">
+                <Link href="https://www.instagram.com/?locale=pt_BR">
+                  <IconeInstagram />
+                </Link>
+              </li>
+              <li className="text-green-600">
+                <Link href="https://www.youtube.com/?locale=pt_BR">
+                  <IconeYoutube />
+                </Link>
+              </li>
             </ul>
           </ul>
         </div>
@@ -113,7 +156,8 @@ export function Footer<T>(props: FooterProps) {
 
       <div className="flex flex-col items-center bg-zinc-300  dark:bg-black dark:text-gray-400 text-gray-400">
         <p className={`font-thin py-1`}>
-          &copy;2024 todos direitos reservados by sidebit.dev
+          &copy;{new Date().getFullYear()} todos direitos reservados by
+          sidebit.dev
         </p>
       </div>
     </section>
