@@ -62,25 +62,6 @@ export function Contact<T>(props: MapLocalProps) {
       </div>
       <div className={`flex flex-col md:flex-row p-4`}>
         <div className={`md:w-1/2 w-full`}>
-          {/* <h3 className={`font-bold text-2xl mb-2`}>Redes Sociais</h3>
-          <ul>
-            <li>
-              <span className="font-bold">Zap:</span> 11 45673-4567
-            </li>
-            <li>
-              <span className="font-bold">E-mail:</span>{" "}
-              terapias-holisticas@teste.com
-            </li>
-            <li>
-              <span className="font-bold">Atendimento:</span> das 09:00hs às
-              16:00hs
-            </li>
-          </ul>
-          <ul className="flex flex-row gap-4">
-            <li>Face</li>
-            <li>Insta</li>
-            <li>YouTube</li>
-          </ul> */}
           <div className="mt-4 md:mr-4">
             {/* <h3 className={`font-bold text-2xl mb-2`}>Formulário de Contato</h3> */}
             <div>
@@ -112,7 +93,7 @@ export function Contact<T>(props: MapLocalProps) {
           </div>
         </div>
 
-        <div className={`mt-4 md:mt-0 md:w-1/2 w-full`}>
+        <div className={`mt-4 md:mt-0 md:w-1/2 w-full`} id="Mapa">
           {mapLocalHome.map((item) => {
             return (
               <div key={item.id}>

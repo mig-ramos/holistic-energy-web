@@ -86,13 +86,13 @@ export default function Tabela<T>(props: TabelaProps<T>) {
 
   return (
     <div className={`bg-green-100 rounded-xl my-1`}>
-      <table className={`w-full my-1 mx-auto`}>
+      <table className={`w-full my-4 mx-auto`}>
         <thead
           className={`bg-green-600 dark:bg-green-800 dark:text-white text-black text-left`}
         >
           {renderizarCabecalho()}
         </thead>
-        <tbody>{renderizarDados()}</tbody>
+        <tbody className="align-top">{renderizarDados()}</tbody>
       </table>
     </div>
   );

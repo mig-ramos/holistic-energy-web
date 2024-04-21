@@ -62,7 +62,7 @@ export default function Index() {
       <LayoutDasboard>
         <PanelSetupHome role={user.role} />
 
-        <h2 className="border-t-2 border-2 rounded-xl border-green-500 mt-2 px-4 py-1">Localização do Terapeuta</h2>
+        <h2 className="border-t-2 border-2 rounded-xl border-green-500 mt-2 px-4 py-1">LOCAL TERAPEUTA</h2>
 
         {tabelaVisivel ? (
           <>

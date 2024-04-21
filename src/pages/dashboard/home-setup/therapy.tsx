@@ -47,7 +47,7 @@ export default function Index() {
         <PanelSetupHome role={user.role} />
 
         <h2 className="border-t-2 border-2 rounded-xl border-green-500 mt-2 px-4 py-1">
-          TERAPIA(s)
+          TERAPIAS
         </h2>
 
         {tabelaVisivel ? (

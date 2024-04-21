@@ -110,7 +110,7 @@ export default function Formulario(props: FormularioProps) {
   }
 
   return (
-    <div>
+    <div className="py-4">
       <form className="mt-4" onSubmit={handleRegister}>
         {id ? <InputText label="Id" valor={id} somenteLeitura /> : false}
 
@@ -194,6 +194,7 @@ export default function Formulario(props: FormularioProps) {
             label="Info Mapa"
             valor={info}
             valorMudou={setInfo}
+            placeholser="Aqui!"            
           />
 
           <InputText
@@ -201,6 +202,7 @@ export default function Formulario(props: FormularioProps) {
             label="Id do Google Map"
             valor={mapId}
             valorMudou={setMapId}
+            placeholser="DEMO_MAP_ID"
           />
         </div>
         <div>

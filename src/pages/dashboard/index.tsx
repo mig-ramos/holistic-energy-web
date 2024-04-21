@@ -16,6 +16,7 @@ import { useTherapy } from "@/data/hooks/home/useTherapy";
 import { useBookTherapy } from "@/data/hooks/home/useBookTherapy";
 import { useMapLocal } from "@/data/hooks/home/useMapLocal";
 import { Mapa } from "@/components/maps/apiProvider";
+import { useCompany } from "@/data/hooks/home/useCompany";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useContext(AuthContext);
@@ -24,6 +25,7 @@ export default function Dashboard() {
   const { therapies } = useTherapy();
   const { bookTherapies } = useBookTherapy();
   const { mapLocals } = useMapLocal();
+  const { companies } = useCompany();
 
   const pathImage = APP_SERV.pathBaseImages;
 
@@ -65,7 +67,7 @@ export default function Dashboard() {
               </h3>
               <div className="flex-col lg:flex lg:flex-row gap-4">
                 <div className="flex flex-col lg:w-1/2 ">
-                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 mb-2 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/slide"}
                       className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
@@ -112,7 +114,7 @@ export default function Dashboard() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 mb-2 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/book-therapy"}
                       className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
@@ -168,7 +170,7 @@ export default function Dashboard() {
                     })}
                   </div>
 
-                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200">
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 mb-2 border-2 border-green-200">
                     <Link
                       href={"/dashboard/home-setup/map-local"}
                       className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
@@ -210,7 +212,7 @@ export default function Dashboard() {
                               </p>
                               <p>
                                 <span className="font-bold text-green-500">
-                                  Info Mapa:{" "}
+                                  Info Mapa - {"ex. 'Aqui!': "}
                                 </span>
                                 {item.info}
                               </p>
@@ -220,17 +222,32 @@ export default function Dashboard() {
                                 </span>
                                 {item.mapId}
                               </p>
-                              <span className=" ">Se <span className="text-green-500 font-bold"><u>Info Mapa</u></span> estiver preenchido será usado o Google Map</span>
+                              <span className=" ">
+                                Se{" "}
+                                <span className="text-green-500 font-bold">
+                                  <u>Info Mapa</u>
+                                </span>{" "}
+                                não estiver preenchido será usado FIGURA em vez
+                                de Google Map
+                              </span>
                             </div>
                             <div className="w-full md:w-1/2">
                               {!item.info ? (
-                                <img
-                                  className="rounded-md w-full"
-                                  src={pathImage + item.photo}
-                                  alt={`Local ${
-                                    item.photo.split("-")[1].split(".")[0]
-                                  }`}
-                                />
+                                <>
+                                  <img
+                                    className="rounded-md w-full"
+                                    src={pathImage + item.photo}
+                                    alt={`Local ${
+                                      item.photo.split("-")[1].split(".")[0]
+                                    }`}
+                                  />
+                                  <p className="mt-2 text-center">
+                                    <span>Google Map &nbsp;</span>
+                                    <span className="p-1 bg-yellow-300 dark:bg-yellow-700 rounded-md">
+                                      FIGURA
+                                    </span>
+                                  </p>
+                                </>
                               ) : (
                                 <Mapa
                                   apiKey={item.apiKey}
@@ -247,29 +264,96 @@ export default function Dashboard() {
                     })}
                   </div>
 
-                  <div className="bg-green-100 dark:bg-slate-600 rounded-xl p-4">
-                    <p>Sessão: EXPEDIENTE</p>
-                    <div className="flex h-auto gap-4">
-                      <div className="w-full bg-orange-200">
-                        <p>
-                          <span>Semana: </span>SEG - TER - QUI - SEX
-                        </p>
-                        <p>
-                          <span>Das: </span>09h às 16h
-                        </p>
-                        <p>
-                          <span>Zap: </span>11 99765-3424
-                        </p>
-                        <span>Geolocalização</span>
-                        <p>
-                          <span>Latitude: </span>-25.8650945
-                        </p>
-                        <p>
-                          <span>Longitude: </span>-48.8650945
-                        </p>
-                        <div></div>
-                      </div>
-                    </div>
+                  <div className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 mb-2 border-2 border-green-200">
+                    <Link
+                      href={"/dashboard/home-setup/company"}
+                      className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
+                    >
+                      <span className="font-bold">
+                        Sessão:{` DADOS EMPRESA`}
+                      </span>{" "}
+                      CLICK para Editar...
+                    </Link>
+
+                    {companies.map((item) => {
+                      return (
+                        <div className="" key={item.id}>
+                          <div className="flex flex-col md:flex-row h-auto gap-4">
+                            <div className="w-full md:w1/2">
+                              <p className="">
+                                <span className="font-bold text-green-500">
+                                  Nome Empresa:{" "}
+                                </span>
+                                {item.companyName}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Descrição:{" "}
+                                </span>{" "}
+                                {item.description}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Endereço:{" "}
+                                </span>{" "}
+                                {item.companyAddress}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Expediente:{" "}
+                                </span>
+                                {item.officeOur}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Zap Fone:{" "}
+                                </span>
+                                {item.zap}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  E-mail:{" "}
+                                </span>
+                                {item.email}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Facebook:{" "}
+                                </span>
+                                {item.facebook}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Instagram:{" "}
+                                </span>
+                                {item.instagram}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Youtube:{" "}
+                                </span>
+                                {item.youtube}
+                              </p>
+                              <p>
+                                <span className="font-bold text-green-500">
+                                  Twitter:{" "}
+                                </span>
+                                {item.twitter}
+                              </p>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                              <img
+                                className="rounded-md w-full"
+                                src={pathImage + item.photo}
+                                alt={`BookTherapy ${
+                                  item.photo.split("-")[1].split(".")[0]
+                                }`}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="lg:w-1/2 flex flex-col">
@@ -277,7 +361,7 @@ export default function Dashboard() {
                     {abouts.map((item) => {
                       return (
                         <div
-                          className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 border-2 border-green-200"
+                          className="bg-slate-100 dark:bg-slate-600 rounded-xl p-4 mb-2 border-2 border-green-200"
                           key={item.id}
                         >
                           <Link

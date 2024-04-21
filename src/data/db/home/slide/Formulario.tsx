@@ -82,7 +82,7 @@ export default function Formulario(props: FormularioProps) {
   }
 
   return (
-    <div>
+    <div className="py-4">
       <form className="mt-4" onSubmit={handleRegister}>
         {id ? <InputText label="Código" valor={id} somenteLeitura /> : false}
 

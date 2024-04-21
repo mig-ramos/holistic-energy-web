@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BookTherapy from "@/data/db/home/book-therapy/BookTherapy";
 import BookTherapyRepository from "@/data/db/home/book-therapy/BookTherapyRepository";
 import BookTherapyCollection from "@/data/db/home/book-therapy/BookTherapyCollection";
-import useTabelaOuForm from "./useTabelaOuForm";
+import useTabelaOuForm from "../useTabelaOuForm";
 
 export function useBookTherapy() {
     const repo: BookTherapyRepository = new BookTherapyCollection();

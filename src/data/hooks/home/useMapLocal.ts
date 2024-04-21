@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MapLocal from "@/data/db/home/contact/map/MapLocal";
 import MapLocalRepository from "@/data/db/home/contact/map/MapLocalRepository";
 import MapLocalCollection from "@/data/db/home/contact/map/MapLocalCollection";
-import useTabelaOuForm from "./useTabelaOuForm";
+import useTabelaOuForm from "../useTabelaOuForm";
 
 export function useMapLocal() {
     const repo: MapLocalRepository = new MapLocalCollection();

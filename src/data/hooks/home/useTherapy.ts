@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Therapy from "@/data/db/home/therapy/Therapy";
 import TherapyRepository from "@/data/db/home/therapy/TherapyRepository"
 import TherapyCollection from "@/data/db/home/therapy/TherapyCollection"
-import useTabelaOuForm from "./useTabelaOuForm";
+import useTabelaOuForm from "../useTabelaOuForm";
 
 export function useTherapy() {
     const repo: TherapyRepository = new TherapyCollection();

@@ -1,26 +1,26 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "@/data/contexts/auth/AuthContext";
 import Content from "@/components/offTheHome/content";
-import { useAbout } from "@/data/hooks/home/useAbout";
+import { useCompany } from "@/data/hooks/home/useCompany";
 
 import Button from "@/components/ui/Button";
 import Tabela from "@/components/ui/Tabela";
-import Formulario from "@/data/db/home/about/Formulario";
+import Formulario from "@/data/db/home/company/Formulario";
 import { LayoutDasboard } from "@/components/layoutDashborad";
 import { PanelSetupHome } from "@/components/layoutDashborad/panelSetupHome";
 
 export default function Index() {
   const {
-    abouts,
+    companies,
     listAll,
-    about,
-    upAbout,
-    newAbout,
-    excluirAbout,
+    company,
+    upCompany,
+    newCompany,
+    excluirCompany,
     exibirTabela,
-    selecionarAbout,
+    selecionarCompany,
     tabelaVisivel,
-  } = useAbout();
+  } = useCompany();
 
   const { user } = useContext(AuthContext);
 
@@ -31,16 +31,48 @@ export default function Index() {
         name: "ID",
       },
       {
-        property: "title",
-        name: "Título",
-      },
-      {
-        property: "subTitle",
-        name: "Sub-Título",
+        property: "companyName",
+        name: "Nome Empresa",
       },
       {
         property: "description",
         name: "Descrição",
+      },
+      {
+        property: "companyAddress",
+        name: "Endereço",
+      },
+      {
+        property: "photo",
+        name: "Foto",
+      },
+      {
+        property: "officeOur",
+        name: "Expediente",
+      },
+      {
+        property: "zap",
+        name: "Fone",
+      },
+      {
+        property: "email",
+        name: "E-mail",
+      },
+      {
+        property: "facebook",
+        name: "Facebook",
+      },
+      {
+        property: "youtube",
+        name: "Youtube",
+      },
+      {
+        property: "instagram",
+        name: "Instagram",
+      },
+      {
+        property: "twitter",
+        name: "Twitter",
       },
     ],
   };
@@ -51,29 +83,29 @@ export default function Index() {
         <PanelSetupHome role={user.role} />
 
         <h2 className="border-t-2 border-2 rounded-xl border-green-500 mt-2 px-4 py-1">
-          SOBRE MIM
+          SETUP EMPRESA
         </h2>
 
         {tabelaVisivel ? (
           <>
             <div className={`px-2`}>
-              <Button cor="green" onClick={newAbout}>
-                Cadastrar Sobre Mim
+              <Button cor="green" onClick={newCompany}>
+                Cadastrar Empresa
               </Button>
 
               <Tabela
-                list={abouts}
+                list={companies}
                 config={config}
-                itemSelecionado={selecionarAbout}
-                itemExcluido={excluirAbout}
+                itemSelecionado={selecionarCompany}
+                itemExcluido={excluirCompany}
               />
             </div>
           </>
         ) : (
           <div className={`px-2 md:w-8/12 lg:w-7/12 xl:w-6/12 max-w-xl`}>
             <Formulario
-              about={about}
-              aboutMudou={upAbout}
+              company={company}
+              companyMudou={upCompany}
               cancelado={exibirTabela}
             />
           </div>

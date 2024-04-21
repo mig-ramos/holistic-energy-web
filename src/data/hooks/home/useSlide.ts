@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Slide from "@/data/db/home/slide/Slide";
 import SlideRepository from "@/data/db/home/slide/SlideRepository";
 import SlideCollection from "@/data/db/home/slide/SlideCollection";
-import useTabelaOuForm from "./useTabelaOuForm";
+import useTabelaOuForm from "../useTabelaOuForm";
 
 export function useSlide() {
     const repo: SlideRepository = new SlideCollection();

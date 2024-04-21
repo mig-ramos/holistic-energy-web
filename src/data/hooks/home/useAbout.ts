@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import About from "@/data/db/home/about/About";
 import AboutRepository from "@/data/db/home/about/AboutRepository";
 import AboutCollection from "@/data/db/home/about/AboutCollection";
-import useTabelaOuForm from "./useTabelaOuForm";
+import useTabelaOuForm from "../useTabelaOuForm";
 
 export function useAbout() {
     const repo: AboutRepository = new AboutCollection();
