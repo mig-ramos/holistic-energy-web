@@ -31,7 +31,7 @@ export default function Home() {
       <main>
         <Content>
           <Carosel slide={slides} />
-          <AboutHome about={abouts} />
+          <AboutHome />
           <Therapies therapy={therapies} />
           <BookTherapyHome bookTherapy={bookTherapies} />
           <Contact mapLocal={mapLocals} />

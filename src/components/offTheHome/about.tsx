@@ -1,18 +1,15 @@
-import About from "@/data/db/home/about/About";
+import { useCompany } from "@/data/hooks/home/useCompany";
 import { APP_SERV } from "@/data/config/configApp";
 
-type AboutProps = {
-  about: About[];
-};
 
-export function AboutHome<T>(props: AboutProps) {
+export function AboutHome() {
   const pathImage = APP_SERV.pathBaseImages;
 
-  let aboutHome = props.about;
+const { companies } = useCompany();
 
   return (
     <section className="border border-solid border-green-500 rounded-3xl bg-zinc-100">
-      {aboutHome.map((item) => {
+      {companies.map((item) => {
         return (
           <div
             key={item.id}
@@ -20,9 +17,9 @@ export function AboutHome<T>(props: AboutProps) {
           >
             <div className={`md:w-9/12  text-start`}>
               <div className="border-s-8 border-green-500 p-4">
-                <h2 className={`text-green-500 text-xl`}>{item.subTitle}:</h2>
+                <h2 className={`text-green-500 text-xl`}>Sobre Nós:</h2>
                 <h1 className={`font-bold text-green-500 text-3xl`}>
-                  {item.title}
+                  {item.companyName}
                 </h1>
               </div>
               <div
@@ -37,7 +34,7 @@ export function AboutHome<T>(props: AboutProps) {
               <img
                 src={pathImage + item.photo}
                 height={260}
-                alt={item.subTitle}
+                alt={item.companyName}
                 className="rounded-3xl w-full hover:scale-110 hover:rotate-2 duration-300"
               />
             </div>
