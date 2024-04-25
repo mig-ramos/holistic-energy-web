@@ -417,8 +417,8 @@ export default function Dashboard() {
                       href={"/dashboard/home-setup/therapy"}
                       className="flex gap-10 bg-yellow-300 dark:bg-yellow-700 px-3 py-2 rounded-xl mb-2"
                     >
-                      <span className="font-bold">Sessão: TERAPIA(s)</span>{" "}
-                      CLICK para Editar...
+                      <span className="font-bold">Sessão: TERAPIAS</span> CLICK
+                      para Editar...
                     </Link>
                     <div className=" h-auto gap-4">
                       {therapies.map((item) => {

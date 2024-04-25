@@ -50,7 +50,7 @@ export function Contact<T>(props: MapLocalProps) {
 
   return (
     <section
-      className={`mx-auto my-auto mt-4 border border-solid border-green-500 rounded-3xl`}
+      className={`mx-auto my-4 border border-solid border-green-500 rounded-3xl`}
     >
       <div className={`border-s-8 border-green-500 mt-4 p-4`}>
         <h2 className={`text-green-500 text-start  text-xl`}>

@@ -4,7 +4,6 @@ import Head from "next/head";
 import { APP_SERV } from "@/data/config/configApp";
 import { useTherapy } from "@/data/hooks/home/useTherapy";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 
 export default function Therapies() {
   const { therapies } = useTherapy();
