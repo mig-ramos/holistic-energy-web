@@ -69,7 +69,7 @@ export function Footer<T>(props: FooterProps) {
                   return (
                     <div key={item.id}>
                       <li>
-                        <a href="#Mapa" className="flex">
+                        <a href="/#Mapa" className="flex">
                           <span className="text-green-600 font-bold mb-2">
                             <IconeMap />
                           </span>
@@ -145,7 +145,10 @@ export function Footer<T>(props: FooterProps) {
                   <ul className="px-3 ml-1 text-center md:text-left">
                     <li>
                       {item.zap && (
-                        <a href={`tel:+55${item.zap}`} className="flex gap-2 mb-2">
+                        <a
+                          href={`tel:+55${item.zap}`}
+                          className="flex gap-2 mb-2"
+                        >
                           <span className="font-bold">
                             <MessageCircle color="#07ba00" />
                           </span>
