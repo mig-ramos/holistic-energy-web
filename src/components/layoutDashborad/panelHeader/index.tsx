@@ -26,8 +26,8 @@ export function PanelHeader({ role }: PanelHeaderProps) {
           <span>Configura Home</span>
         </ActiveLink>
       )}
-      <ActiveLink href="/dashboard/profile" activeClassName={linkActive}>
-        <span>Perfil</span>
+      <ActiveLink href="/dashboard/registrations" activeClassName={linkActive}>
+        <span>Cadastros Gerais</span>
       </ActiveLink>
 
       <button
