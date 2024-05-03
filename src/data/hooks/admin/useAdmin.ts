@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import User from "@/data/db/models/User";
-import UserRepository from "@/data/db/admin/user/UserRepository";
-import UserCollection from "@/data/db/admin/user/UserCollection";
+import AdminRepository from "@/data/db/admin/admin/AdminRepository";
+import AdminCollection from "@/data/db/admin/admin/AdminCollection";
 import useTabelaOuForm from "../useTabelaOuForm";
 
-export function useUser() {
-    const repo: UserRepository = new UserCollection();
+export function useAdmin() {
+    const repo: AdminRepository = new AdminCollection();
 
     const { tabelaVisivel, exibirTabela, exibirFormulario } = useTabelaOuForm()
 

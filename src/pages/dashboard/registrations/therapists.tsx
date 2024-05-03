@@ -1,26 +1,26 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "@/data/contexts/auth/AuthContext";
 import Content from "@/components/offTheHome/content";
-import { useAbout } from "@/data/hooks/home/useAbout";
+import { useTherapist } from "@/data/hooks/admin/useTherapist";
 
 import Button from "@/components/ui/Button";
 import Tabela from "@/components/ui/Tabela";
-import Formulario from "@/data/db/home/about/Formulario";
+import Formulario from "@/data/db/admin/therapist/Formulario";
 import { LayoutDasboard } from "@/components/layoutDashborad";
-import { PanelSetupHome } from "@/components/layoutDashborad/panelSetupHome";
+import { PanelRegistrations } from "@/components/layoutDashborad/panelRegistrations";
 
 export default function Index() {
   const {
-    abouts,
+    users,
     listAll,
-    about,
-    upAbout,
-    newAbout,
-    excluirAbout,
+    userr,
+    upUser,
+    newUser,
+    excluirUser,
     exibirTabela,
-    selecionarAbout,
+    selecionarUser,
     tabelaVisivel,
-  } = useAbout();
+  } = useTherapist();
 
   const { user } = useContext(AuthContext);
 
@@ -31,16 +31,20 @@ export default function Index() {
         name: "ID",
       },
       {
-        property: "title",
-        name: "Título",
+        property: "name",
+        name: "Nome",
       },
       {
-        property: "subTitle",
-        name: "Sub-Título",
+        property: "email",
+        name: "E-mail",
       },
       {
-        property: "description",
-        name: "Descrição",
+        property: "role",
+        name: "Papel",
+      },
+      {
+        property: "active",
+        name: "Ativo",
       },
     ],
   };
@@ -48,32 +52,32 @@ export default function Index() {
   return (
     <Content>
       <LayoutDasboard>
-        <PanelSetupHome role={user.role} />
+        <PanelRegistrations role={user.role} />
 
         <h2 className="border-t-2 border-2 rounded-xl border-green-500 mt-2 px-4 py-1">
-          SOBRE MIM
+          CADASTRO DE TERAPEUTAS
         </h2>
 
         {tabelaVisivel ? (
           <>
             <div className={`px-2`}>
-              <Button cor="green" onClick={newAbout}>
-                Cadastrar Sobre Mim
+              <Button cor="green" onClick={newUser}>
+                Cadastrar Terapeuta
               </Button>
 
               <Tabela
-                list={abouts}
+                list={users}
                 config={config}
-                itemSelecionado={selecionarAbout}
-                itemExcluido={excluirAbout}
+                itemSelecionado={selecionarUser}
+                itemExcluido={excluirUser}
               />
             </div>
           </>
         ) : (
           <div className={`px-2 md:w-8/12 lg:w-7/12 xl:w-6/12 max-w-xl`}>
             <Formulario
-              about={about}
-              aboutMudou={upAbout}
+              user={userr}
+              userMudou={upUser}
               cancelado={exibirTabela}
             />
           </div>

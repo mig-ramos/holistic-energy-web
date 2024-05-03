@@ -1,6 +1,6 @@
-import User from "../../models/User";
+import User from "../../models/User"
 
-export default interface UserRepository {
+export default interface TherapistRepository {
     listarTodos(): Promise<User[]>
     salvar(user: User): Promise<User>
     excluir(user: User): Promise<void>

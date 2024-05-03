@@ -1,4 +1,4 @@
-import Therapy from "./Therapy";
+import Therapy from "../../models/Therapy";
 import TherapyRepository from "./TherapyRepository";
 import { api } from "@/services/apiClient";
 

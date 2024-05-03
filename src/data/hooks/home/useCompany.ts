@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Company from "@/data/db/home/company/Company";
+import Company from "@/data/db/models/Company";
 import CompanyRepository from "@/data/db/home/company/CompanyRepository";
 import CompanyCollection from "@/data/db/home/company/CompanyCollection";
 import useTabelaOuForm from "../useTabelaOuForm";

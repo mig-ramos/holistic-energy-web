@@ -1,4 +1,4 @@
-import MapLocal from "./MapLocal";
+import MapLocal from "../../../models/MapLocal";
 
 export default interface MapLocalRepository {
     listarTodos(): Promise<MapLocal[]>

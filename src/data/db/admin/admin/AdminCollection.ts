@@ -1,12 +1,12 @@
 import User from "../../models/User";
-import UserRepository from "./UserRepository";
+import AdminRepository from "./AdminRepository";
 import { api } from "../../../../services/apiClient";
 
-export default class UserCollection implements UserRepository {
+export default class AdminCollection implements AdminRepository {
 
     async listarTodos(): Promise<User[]> {
 
-        const response = await api.get('/user/list', undefined)
+        const response = await api.get('/admin/list', undefined)
         return response.data ?? []
     }
 
@@ -19,7 +19,7 @@ export default class UserCollection implements UserRepository {
                 email: user.email,
                 password: user.password,
                 role: user.role,
-             })
+            })
             return response.data;
         }
         else {

@@ -1,4 +1,4 @@
-import About from "./About";
+import About from "../../models/About";
 import AboutRepository from "./AboutRepository";
 import { api } from "../../../../services/apiClient";
 

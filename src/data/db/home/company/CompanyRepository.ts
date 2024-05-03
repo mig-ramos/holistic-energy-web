@@ -1,4 +1,4 @@
-import Company from "./Company";
+import Company from "../../models/Company";
 
 export default interface CompanyRepository {
     listarTodos(): Promise<Company[]>

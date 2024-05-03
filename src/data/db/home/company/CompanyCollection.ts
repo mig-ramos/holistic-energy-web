@@ -1,4 +1,4 @@
-import Company from "./Company";
+import Company from "../../models/Company";
 import CompanyRepository from "./CompanyRepository";
 import { api } from "../../../../services/apiClient";
 

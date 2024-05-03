@@ -1,4 +1,4 @@
-import MapLocal from "./MapLocal";
+import MapLocal from "../../../models/MapLocal";
 import MapLocalRepository from "./MapLocalRepository";
 import { api } from "@/services/apiClient";
 

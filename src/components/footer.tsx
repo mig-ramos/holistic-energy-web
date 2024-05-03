@@ -4,7 +4,7 @@ import { ActiveLink } from "@/components/activeLink";
 import Image from "next/image";
 import LogoLight from "../../public/logo-light.svg";
 import LogoDark from "../../public/logo-dark.svg";
-import Therapy from "@/data/db/home/therapy/Therapy";
+import Therapy from "@/data/db/models/Therapy";
 import { MessageCircle, Mail, CalendarClock } from "lucide-react";
 import {
   IconeFacebook,

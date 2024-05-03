@@ -1,4 +1,4 @@
-import Slide from "./Slide";
+import Slide from "../../models/Slide";
 import SlideRepository from "./SlideRepository";
 import { api } from "../../../../services/apiClient";
 

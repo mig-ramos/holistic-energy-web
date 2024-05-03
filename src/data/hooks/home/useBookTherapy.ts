@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import BookTherapy from "@/data/db/home/book-therapy/BookTherapy";
+import BookTherapy from "@/data/db/models/BookTherapy";
 import BookTherapyRepository from "@/data/db/home/book-therapy/BookTherapyRepository";
 import BookTherapyCollection from "@/data/db/home/book-therapy/BookTherapyCollection";
 import useTabelaOuForm from "../useTabelaOuForm";

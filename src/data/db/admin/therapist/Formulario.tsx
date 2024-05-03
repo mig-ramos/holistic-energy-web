@@ -8,7 +8,6 @@ import { useUser } from "@/data/hooks/admin/useUser";
 import { Select } from "@/components/ui/Select";
 import imgLoading from "/public/assets/loading.gif";
 import Image from "next/image";
-import useTabelaOuForm from "@/data/hooks/useTabelaOuForm";
 
 interface FormularioProps {
   user: User;
@@ -25,12 +24,11 @@ export default function Formulario(props: FormularioProps) {
   const [name, setName] = useState(props.user?.name ?? "");
   const [email, setEmail] = useState(props.user?.email ?? "");
   const [password, setPassword] = useState(props.user?.password ?? "123456");
-  const [role, setRole] = useState(props.user?.role ?? "");
+  const [role, setRole] = useState(props.user?.role ?? "THERAPIST");
 
   const roles = [
-    { value: "", label: "Tipo Usuário" },
-    { value: "CLIENT", label: "Cliente" },
     { value: "THERAPIST", label: "Terapeuta" },
+    { value: "CLIENT", label: "Cliente" },
     { value: "ADMIN", label: "Administrador" },
   ];
 
@@ -41,8 +39,8 @@ export default function Formulario(props: FormularioProps) {
     setPassword("");
   }
 
-  function mostrarTabela(){
-    exibirTabela
+  function mostrarTabela() {
+    exibirTabela();
   }
 
   async function handleRegister(event: FormEvent) {
@@ -60,13 +58,16 @@ export default function Formulario(props: FormularioProps) {
       }
     } else {
       try {
-        if (name === "" || email === "" || password === "" || role === "") {
+        {
+          role ? "TERAPIST" : "THERAPIST";
+        }
+        if (name === "" || email === "" || password === "") {
           console.log(name, email, password, role);
           toast.error("Preencha todos os campos!");
           return;
         }
         setLoading(true);
-        await api.post("/user/add", {
+        await api.post("/therapist/add", {
           name,
           email,
           password,
@@ -80,6 +81,8 @@ export default function Formulario(props: FormularioProps) {
       } catch (err) {
         toast.error("Ops erro ao cadastrar!");
         setLoading(false);
+      } finally {
+        mostrarTabela();
       }
     }
   }
@@ -111,6 +114,7 @@ export default function Formulario(props: FormularioProps) {
           label="Papel do Usuário"
           valor={role}
           valorMudou={setRole}
+          somenteLeitura
         />
 
         <div>

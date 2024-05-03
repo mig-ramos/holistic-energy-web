@@ -1,4 +1,4 @@
-import Therapy from "./Therapy";
+import Therapy from "../../models/Therapy";
 
 export default interface UserRepository {
     salvar(therapy: Therapy): Promise<Therapy>

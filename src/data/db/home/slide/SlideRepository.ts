@@ -1,4 +1,4 @@
-import Slide from "./Slide";
+import Slide from "../../models/Slide";
 
 export default interface HourRepository {
     listarTodos(): Promise<Slide[]>

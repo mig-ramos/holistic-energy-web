@@ -1,4 +1,4 @@
-import Therapy from "@/data/db/home/therapy/Therapy";
+import Therapy from "@/data/db/models/Therapy";
 import { APP_SERV } from "@/data/config/configApp";
 
 type TherapyProps = {

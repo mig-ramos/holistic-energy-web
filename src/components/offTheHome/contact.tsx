@@ -6,7 +6,7 @@ import Button from "../ui/Button";
 import { toast } from "react-toastify";
 import { Mapa } from "@/components/maps/apiProvider";
 import { APP_SERV } from "@/data/config/configApp";
-import MapLocal from "@/data/db/home/contact/map/MapLocal";
+import MapLocal from "@/data/db/models/MapLocal";
 
 type MapLocalProps = {
   mapLocal: MapLocal[];

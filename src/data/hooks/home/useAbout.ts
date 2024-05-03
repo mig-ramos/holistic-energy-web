@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import About from "@/data/db/home/about/About";
+import About from "@/data/db/models/About";
 import AboutRepository from "@/data/db/home/about/AboutRepository";
 import AboutCollection from "@/data/db/home/about/AboutCollection";
 import useTabelaOuForm from "../useTabelaOuForm";

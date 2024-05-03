@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { InputText } from "@/components/ui/InputText";
-import Company from "./Company";
+import Company from "../../models/Company";
 import Button from "@/components/ui/Button";
 import { FiUpload } from "react-icons/fi";
 import { toast } from "react-toastify";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Slide from "@/data/db/home/slide/Slide";
+import Slide from "@/data/db/models/Slide";
 import SlideRepository from "@/data/db/home/slide/SlideRepository";
 import SlideCollection from "@/data/db/home/slide/SlideCollection";
 import useTabelaOuForm from "../useTabelaOuForm";

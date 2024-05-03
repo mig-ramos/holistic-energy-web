@@ -1,4 +1,4 @@
-import About from "./About";
+import About from "../../models/About";
 
 export default interface AboutRepository {
     listarTodos(): Promise<About[]>

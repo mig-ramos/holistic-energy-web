@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Therapy from "@/data/db/home/therapy/Therapy";
+import Therapy from "@/data/db/models/Therapy";
 import TherapyRepository from "@/data/db/home/therapy/TherapyRepository"
 import TherapyCollection from "@/data/db/home/therapy/TherapyCollection"
 import useTabelaOuForm from "../useTabelaOuForm";

@@ -74,12 +74,21 @@ export default function Index() {
             </div>
           </>
         ) : (
-          <div className={`px-2 md:w-8/12 lg:w-7/12 xl:w-6/12 max-w-xl`}>
-            <Formulario
-              user={userr}
-              userMudou={upUser}
-              cancelado={exibirTabela}
-            />
+          <div className={`flex p-2 md:w-full`}>
+            <div className="w-full p-4 md:w-1/2">
+              <Formulario
+                user={userr}
+                userMudou={upUser}
+                cancelado={exibirTabela}
+              />
+            </div>
+            <div className="w-full p-4 md:w-1/2">
+              <Formulario
+                user={userr}
+                userMudou={upUser}
+                cancelado={exibirTabela}
+              />
+            </div>
           </div>
         )}
       </LayoutDasboard>

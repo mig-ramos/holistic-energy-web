@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { InputText } from "@/components/ui/InputText";
-import About from "./About";
+import About from "../../models/About";
 import Button from "@/components/ui/Button";
 import { TextArea } from "@/components/ui/TextArea";
 import { FiUpload } from "react-icons/fi";

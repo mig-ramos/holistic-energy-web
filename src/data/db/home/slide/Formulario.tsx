@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { InputText } from "@/components/ui/InputText";
-import Slide from "./Slide";
+import Slide from "../../models/Slide";
 import Button from "@/components/ui/Button";
 import { TextArea } from "@/components/ui/TextArea";
 import { FiUpload } from "react-icons/fi";

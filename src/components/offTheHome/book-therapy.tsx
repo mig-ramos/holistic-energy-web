@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BookTherapy from "@/data/db/home/book-therapy/BookTherapy";
+import BookTherapy from "@/data/db/models/BookTherapy";
 import { APP_SERV } from "@/data/config/configApp";
 
 type BookTherapyProps = {

@@ -1,4 +1,4 @@
-import BookTherapy from "./BookTherapy";
+import BookTherapy from "../../models/BookTherapy";
 
 export default interface BookTherapyRepository {
     listarTodos(): Promise<BookTherapy[]>

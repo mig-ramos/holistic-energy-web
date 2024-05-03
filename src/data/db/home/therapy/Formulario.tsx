@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { InputText } from "@/components/ui/InputText";
-import Therapy from "./Therapy";
+import Therapy from "../../models/Therapy";
 import Button from "@/components/ui/Button";
 import { TextArea } from "@/components/ui/TextArea";
 import { FiUpload } from "react-icons/fi";

@@ -1,4 +1,4 @@
-import BookTherapy from "./BookTherapy";
+import BookTherapy from "../../models/BookTherapy";
 import BookTherapyRepository from "./BookTherapyRepository";
 import { api } from "../../../../services/apiClient";
 
